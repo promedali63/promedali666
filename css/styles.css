@@ -65,31 +65,36 @@ nav a:hover {
     padding: 120px 20px;
 }
 
+/* Улучшаем заголовок */
 .hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
+    font-size: 52px;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    text-shadow: 0 0 35px rgba(212,175,55,0.35);
 }
 
-.hero span {
-    font-weight: 300;
+.hero p {
+    font-size: 18px;
+    opacity: 0.9;
 }
 
+/* Кнопка ещё дороже */
 .hero button {
-    margin-top: 30px;
-    padding: 15px 40px;
-    background: linear-gradient(120deg, #d4af37, #f7d774);
+    margin-top: 35px;
+    padding: 16px 44px;
+    border-radius: 40px;
+    background: linear-gradient(120deg, #f7d774, #d4af37);
     border: none;
-    color: #000;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 30px;
-    transition: 0.3s;
+    box-shadow: 0 0 30px rgba(212,175,55,0.45);
+    transition: 0.35s;
 }
 
 .hero button:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
+    box-shadow: 0 0 45px rgba(212,175,55,0.7);
 }
-
 /* Sections */
 .section {
     padding: 100px 60px;
@@ -429,33 +434,4 @@ svg defs {
     padding: 40px;
 }
 
-/* Улучшаем заголовок */
-.hero h1 {
-    font-size: 52px;
-    line-height: 1.2;
-    margin-bottom: 25px;
-    text-shadow: 0 0 35px rgba(212,175,55,0.35);
-}
 
-.hero p {
-    font-size: 18px;
-    opacity: 0.9;
-}
-
-/* Кнопка ещё дороже */
-.hero button {
-    margin-top: 35px;
-    padding: 16px 44px;
-    border-radius: 40px;
-    background: linear-gradient(120deg, #f7d774, #d4af37);
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0 0 30px rgba(212,175,55,0.45);
-    transition: 0.35s;
-}
-
-.hero button:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 45px rgba(212,175,55,0.7);
-}
