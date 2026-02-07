@@ -9,12 +9,14 @@ cards.forEach(card => {
 
 const featureCards = document.querySelectorAll('.feature-card');
 
-featureCards.forEach(card => {
-    card.style.opacity = 0;
-    card.style.transform = 'translateY(40px)';
-    card.style.transition = '0.7s';
-});
+const featureCards = document.querySelectorAll('.feature-card');
 
+ featureCards.forEach(card => {
+        if (card.getBoundingClientRect().top < trigger) {
+            card.style.opacity = 1;
+            card.style.transform = 'translateY(0)';
+        }
+    });
 window.addEventListener('scroll', () => {
     const trigger = window.innerHeight * 0.85;
 
@@ -32,4 +34,5 @@ window.addEventListener('scroll', () => {
             card.style.transform = 'translateY(0)';
         }
     });
-});
+});// Плавное появление карточек
+const cards = document.querySelectorAll('.card');
