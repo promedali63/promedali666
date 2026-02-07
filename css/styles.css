@@ -1,3 +1,83 @@
+/* -------------------------------
+   Подключение шрифта (через CSS) 
+--------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+
+/* -------------------------------
+   Сброс базовых стилей (опционально)
+--------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff;
+    color: #333;
+}
+
+/* -------------------------------
+   Hero-блок
+--------------------------------- */
+.hero {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("img/medals-bg.jpg"); /* убедись, что путь верный */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* -------------------------------
+   Заголовок внутри hero
+--------------------------------- */
+.hero-content h1 {
+    font-size: 70px;
+    background: linear-gradient(120deg, #f7d774, #d4af37, #fff1b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+/* -------------------------------
+   Подзаголовок
+--------------------------------- */
+.hero-content p {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* -------------------------------
+   SVG (если используется)
+--------------------------------- */
+/* Убираем лишние defs, только если реально есть SVG */
+svg {
+    width: 100px;
+    height: 100px;
+}
+
+svg path {
+    stroke: #d4af37; /* простой золотой цвет вместо gradient */
+    stroke-width: 2;
+    fill: none;
+}
+
+/* -------------------------------
+   Другие секции
+--------------------------------- */
+.section {
+    padding: 100px 20px;
+    text-align: center;
+}
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
 
 * {
@@ -219,6 +299,7 @@ footer {
     text-align: center;
     font-size: 38px;
     margin-bottom: 70px;
+70px;
     background: linear-gradient(120deg, #f7d774, #d4af37, #fff1b8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -410,7 +491,8 @@ svg defs {
     text-align: center;
 
     /* 🔥 ФОНОВОЕ ИЗОБРАЖЕНИЕ МЕДАЛЕЙ */
-    background-image: url("medals-bg.jpg");
+    background-image: url("m
+edals-bg.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -433,5 +515,3 @@ svg defs {
     max-width: 900px;
     padding: 40px;
 }
-
-
