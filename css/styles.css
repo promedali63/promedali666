@@ -90,11 +90,23 @@ body {
   width: 40%;
 }
 
-.arrow {
-  width: 120px;
+arrow {
+  position: relative;
+  width: 140px;
   height: 2px;
-  background: black;
-  margin-top: 20px;
+  background: #111;
+  margin-top: 24px;
+}
+
+.arrow::after {
+  content: "";
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left: 12px solid #111;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
 }
 
 .advantages-right {
