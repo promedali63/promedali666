@@ -38,7 +38,7 @@ body {
   color: #888;
 }
 
-/* ===== HERO content positioning ===== */
+/* HERO */
 .hero-content{
   display: flex;
   flex-direction: column;
@@ -74,31 +74,12 @@ body {
   line-height: 1.4;
 }
 
-/* ===== Turquoise button (как раньше) ===== */
-.btn{
-  display: inline-block;
-  padding: 14px 26px;
-  border-radius: 10px;
+.btn {
+  padding: 12px 24px;
+  background: white;
+  color: black;
   text-decoration: none;
-  font-weight: 700;
-  transition: 0.2s;
-}
-
-/* Бирюзовая */
-.btn-turquoise{
-  background: #1abcbd;     /* бирюза */
-  color: #0b0b0b;
-  box-shadow: 0 14px 35px rgba(26,188,189,0.25);
-  margin-top: 8px;         /* кнопка ниже подзаголовка */
-}
-
-.btn-turquoise:hover{
-  filter: brightness(1.05);
-  transform: translateY(-1px);
-}
-
-.btn-turquoise:active{
-  transform: translateY(0px);
+  border-radius: 8px;
 }
 
 /* DARK */
