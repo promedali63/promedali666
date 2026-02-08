@@ -27,10 +27,10 @@ body{ color:#111; }
 }
 
 .brand{
+ .brand{
   display:flex;
   align-items:center;
-  gap:14px;
-  text-decoration:none;
+  gap:4px;                    /* вплотную */
 }
 
 /* PROMEDALI63 +2 размера */
