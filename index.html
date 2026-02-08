@@ -14,6 +14,44 @@
 .feature-list li {
     margin-bottom: 1rem;
 }
+     /* Анимации */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: all 0.9s ease;
+}
+.reveal-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: all 0.9s ease;
+}
+.reveal-left.active,
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Пункты преимуществ */
+.feature-item {
+    margin-bottom: 2rem;
+}
+.feature-title {
+    font-weight: 600;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.3rem;
+}
+.feature-title i {
+    color: #0d6efd; /* bootstrap blue */
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+.feature-text {
+    color: rgba(255,255,255,0.6);
+    padding-left: 26px;
+    line-height: 1.5;
+}
         </style>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
