@@ -33,18 +33,20 @@ window.addEventListener('DOMContentLoaded', event => {
             });
         });
 
-    // Scroll reveal animation
-    const revealElements = document.querySelectorAll('.reveal');
+// Scroll reveal animation
+const revealElements = document.querySelectorAll(
+    '.reveal-left, .reveal-right'
+);
 
-    const revealOnScroll = () => {
-        revealElements.forEach(el => {
-            const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight - 100) {
-                el.classList.add('active');
-            }
-        });
-    };
+const revealOnScroll = () => {
+    revealElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 120) {
+            el.classList.add('active');
+        }
+    });
+};
 
-    revealOnScroll();
-    window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+window.addEventListener('scroll', revealOnScroll);
 });
