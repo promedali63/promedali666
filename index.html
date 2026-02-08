@@ -4,18 +4,17 @@
   <meta charset="UTF-8">
   <title>PROMEDALI63</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
 <header class="header" id="header">
-  <a class="brand" href="#top" aria-label="PROMEDALI63">
-    <img class="brand-logo" src="assets/logo.png" alt="Логотип PROMEDALI63">
+  <a class="brand reveal reveal-left" href="#top" aria-label="PROMEDALI63">
     <span class="brand-text">PROMEDALI63</span>
+    <img class="brand-logo" src="assets/logo.png" alt="Логотип PROMEDALI63">
   </a>
 
-  <nav class="nav" aria-label="Главное меню">
+  <nav class="nav reveal reveal-right" aria-label="Главное меню">
     <a href="#about">О нас</a>
     <a href="#catalog">Каталог</a>
     <a href="#delivery">Доставка</a>
@@ -26,13 +25,13 @@
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-content">
-    <h1 class="hero-title">PROMEDALI63</h1>
+    <h1 class="hero-title reveal reveal-up">PROMEDALI63</h1>
 
-    <p class="hero-subtitle">
+    <p class="hero-subtitle reveal reveal-up" data-delay="150">
       Компания по производству и поставке качественных медалей
     </p>
 
-    <a href="#about" class="btn btn-turquoise">
+    <a href="#about" class="btn btn-turquoise reveal reveal-up" data-delay="300">
       Рассчитать стоимость
     </a>
   </div>
@@ -40,22 +39,24 @@
 
 <!-- ABOUT -->
 <section class="dark-section" id="about">
-  <h2>Создай свою индивидуальную медаль</h2>
-  <p>По твоему дизайну — от идеи до готового изделия</p>
+  <div class="wrap">
+    <h2 class="reveal reveal-left">Создай свою индивидуальную медаль</h2>
+    <p class="reveal reveal-right" data-delay="150">По твоему дизайну — от идеи до готового изделия</p>
+  </div>
 </section>
 
 <!-- ADVANTAGES -->
-<section class="advantages">
+<section class="advantages" id="advantages">
   <div class="advantages-left">
-    <h2>
+    <h2 class="reveal reveal-left">
       Почему стоит выбрать<br>
       индивидуальные медали
     </h2>
-    <div class="arrow"></div>
+    <div class="arrow reveal reveal-left" data-delay="150"></div>
   </div>
 
   <div class="advantages-right">
-    <div class="adv-item">
+    <div class="adv-item reveal reveal-right" data-delay="100">
       <span></span>
       <div>
         <h3>Уникальность и идентичность</h3>
@@ -63,7 +64,7 @@
       </div>
     </div>
 
-    <div class="adv-item">
+    <div class="adv-item reveal reveal-right" data-delay="200">
       <span></span>
       <div>
         <h3>Память о событии</h3>
@@ -71,7 +72,7 @@
       </div>
     </div>
 
-    <div class="adv-item">
+    <div class="adv-item reveal reveal-right" data-delay="300">
       <span></span>
       <div>
         <h3>Признание и уважение</h3>
@@ -79,7 +80,7 @@
       </div>
     </div>
 
-    <div class="adv-item">
+    <div class="adv-item reveal reveal-right" data-delay="400">
       <span></span>
       <div>
         <h3>Престиж мероприятия</h3>
@@ -87,7 +88,7 @@
       </div>
     </div>
 
-    <div class="adv-item">
+    <div class="adv-item reveal reveal-right" data-delay="500">
       <span></span>
       <div>
         <h3>Персонализация</h3>
@@ -98,20 +99,27 @@
 </section>
 
 <!-- Заглушки под меню -->
-<section id="catalog" style="padding:80px 40px;background:#f2f2f2;">
-  <h2>Каталог</h2>
-  <p>Позже сделаем отдельную страницу или блок на этой странице.</p>
+<section id="catalog" class="plain">
+  <div class="wrap">
+    <h2 class="reveal reveal-left">Каталог</h2>
+    <p class="reveal reveal-right" data-delay="150">Позже сделаем отдельную страницу или блок на этой странице.</p>
+  </div>
 </section>
 
-<section id="delivery" style="padding:80px 40px;background:#ffffff;">
-  <h2>Доставка</h2>
-  <p>Добавим варианты доставки и сроки.</p>
+<section id="delivery" class="plain white">
+  <div class="wrap">
+    <h2 class="reveal reveal-left">Доставка</h2>
+    <p class="reveal reveal-right" data-delay="150">Добавим варианты доставки и сроки.</p>
+  </div>
 </section>
 
-<section id="contacts" style="padding:80px 40px;background:#f2f2f2;">
-  <h2>Контакты</h2>
-  <p>Телефон / WhatsApp / Telegram — добавим.</p>
+<section id="contacts" class="plain">
+  <div class="wrap">
+    <h2 class="reveal reveal-left">Контакты</h2>
+    <p class="reveal reveal-right" data-delay="150">Телефон / WhatsApp / Telegram — добавим.</p>
+  </div>
 </section>
 
+<script src="js/scripts.js"></script>
 </body>
 </html>
