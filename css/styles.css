@@ -39,39 +39,34 @@ body {
 }
 
 /* HERO */
-.hero-content{
+.hero {
+  height: 100vh;
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.65),
+      rgba(0,0,0,0.65)
+    ),
+    url("../assets/medal-hero.jpg") center / cover no-repeat;
+
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 16px;              /* расстояние между строками */
-  padding: 0 20px;
+  text-align: center;
 }
 
-/* ===== Bigger text ===== */
-.hero-title{
-  font-size: clamp(64px, 8vw, 110px); /* заметно крупнее */
-  letter-spacing: 4px;
-  line-height: 1;
-  margin: 0;
-
-  background: linear-gradient(
-    180deg,
-    rgba(245,245,245,0.95) 0%,
-    rgba(190,190,190,0.9) 50%,
-    rgba(255,255,255,0.0) 100%
-  );
+.hero-title {
+  font-size: 64px;
+  letter-spacing: 2px;
+  background: linear-gradient(to bottom, #f5f5f5, rgba(150,150,150,0));
   -webkit-background-clip: text;
-  background-clip: text;
   color: transparent;
 }
 
-.hero-subtitle{
-  margin: 0;
-  font-size: clamp(18px, 2.2vw, 24px); /* тоже крупнее */
-  color: rgba(240,240,240,0.9);
-  max-width: 720px;
-  text-align: center;
-  line-height: 1.4;
+.hero-subtitle {
+  margin-top: 12px;
+  max-width: 520px;
+  color: #e0e0e0;
 }
 
 .btn {
