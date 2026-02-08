@@ -45,12 +45,10 @@ body{ color:#111; }
 
 /* ЛОГОТИП ПОСЛЕ ТЕКСТА, БОЛЬШЕ */
 .brand-logo{
-  height:64px !important;     /* ← РЕАЛЬНО увеличивает */
-  width:auto !important;
-  margin-left:6px;            /* ← близко к тексту */
-  display:block;
-
-  transform:translateY(-1px); /* выравнивание */
+  width: 60px;   /* увеличил */
+  height: 60px;  /* увеличил */
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.35));
 }
 
 .nav{
