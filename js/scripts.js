@@ -1,14 +1,9 @@
-window.addEventListener('DOMContentLoaded', () => {
-  const navbar = document.querySelector('#mainNav');
+const header = document.getElementById("header");
 
-  function navbarShrink() {
-    if (window.scrollY === 0) {
-      navbar.classList.remove('navbar-shrink');
-    } else {
-      navbar.classList.add('navbar-shrink');
-    }
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 20) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
   }
-
-  navbarShrink();
-  document.addEventListener('scroll', navbarShrink);
 });
