@@ -10,9 +10,12 @@
 <body>
 
 <header class="header" id="header">
-  <div class="logo">PROMEDALI63</div>
+  <a class="brand" href="#top" aria-label="PROMEDALI63">
+    <img class="brand-logo" src="assets/logo.png" alt="Логотип PROMEDALI63">
+    <span class="brand-text">PROMEDALI63</span>
+  </a>
 
-  <nav class="nav">
+  <nav class="nav" aria-label="Главное меню">
     <a href="#about">О нас</a>
     <a href="#catalog">Каталог</a>
     <a href="#delivery">Доставка</a>
@@ -94,6 +97,21 @@
   </div>
 </section>
 
-<script src="js/scripts.js"></script>
+<!-- Заглушки под меню -->
+<section id="catalog" style="padding:80px 40px;background:#f2f2f2;">
+  <h2>Каталог</h2>
+  <p>Позже сделаем отдельную страницу или блок на этой странице.</p>
+</section>
+
+<section id="delivery" style="padding:80px 40px;background:#ffffff;">
+  <h2>Доставка</h2>
+  <p>Добавим варианты доставки и сроки.</p>
+</section>
+
+<section id="contacts" style="padding:80px 40px;background:#f2f2f2;">
+  <h2>Контакты</h2>
+  <p>Телефон / WhatsApp / Telegram — добавим.</p>
+</section>
+
 </body>
 </html>
