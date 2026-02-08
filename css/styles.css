@@ -26,11 +26,11 @@ body{ color:#111; }
   background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0));
 }
 
-.brand{
- .brand{
+..brand{
   display:flex;
   align-items:center;
-  gap:4px;                    /* вплотную */
+  gap:14px;
+  text-decoration:none;
 }
 
 /* PROMEDALI63 +2 размера */
