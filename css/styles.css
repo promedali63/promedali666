@@ -281,15 +281,32 @@ will-change: opacity, transform;
 }
 /* ===== CTA SLIDE (гармонично как HERO) ===== */
 .cta-slide{
-  padding:90px 0;
+  padding:120px 0;
   text-align:center;
-  position:relative; overflow:hidden;
+  position:relative;
   overflow:hidden;
 
-  /* тот же “премиум” эффект как в hero */
-  background:
-    linear-gradient(180deg, rgba(0,0,0,.75) 0%, rgba(0,0,0,.9) 100%),
-    url("../assets/medal-hero.jpg") center/cover no-repeat;
+  /* просто темный фон */
+  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,.06), rgba(0,0,0,0) 35%),
+              radial-gradient(circle at 70% 80%, rgba(26,188,189,.10), rgba(0,0,0,0) 45%),
+              linear-gradient(180deg, #07080c 0%, #000 100%);
+}
+/* ===== ЗВЁЗДНОЕ НЕБО ЗА ТЕКСТОМ ===== */
+.cta-slide::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.8;
+
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,.9), transparent 60%),
+    radial-gradient(1px 1px at 25% 70%, rgba(255,255,255,.7), transparent 60%),
+    radial-gradient(1px 1px at 40% 35%, rgba(255,255,255,.8), transparent 60%),
+    radial-gradient(1px 1px at 55% 80%, rgba(255,255,255,.6), transparent 60%),
+    radial-gradient(1px 1px at 70% 25%, rgba(255,255,255,.9), transparent 60%),
+    radial-gradient(2px 2px at 85% 60%, rgba(255,255,255,.35), transparent 60%),
+    radial-gradient(2px 2px at 15% 50%, rgba(255,255,255,.25), transparent 60%);
 }
 
 /* мягкая подсветка снизу как “дымка” */
