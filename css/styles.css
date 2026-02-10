@@ -259,6 +259,19 @@ body{
 .modern-advantages::before{
   content:"";
   position:absolute;
+  inset:0;
+  background:
+    radial-gradient(
+      circle at 30% 85%,
+      rgba(26,188,189,.25),
+      transparent 55%
+    );
+  pointer-events:none;
+  z-index:0;
+}
+.modern-advantages::before{
+  content:"";
+  position:absolute;
   inset:-40px;
   background:
     radial-gradient(circle at 18% 30%, rgba(26,188,189,.16), transparent 55%),
