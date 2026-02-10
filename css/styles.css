@@ -170,7 +170,10 @@ body{ color:#111; }
   gap: 60px;
 }
 
-.advantages-left{ width:40%; }
+.advantages-left{ 
+  width:40%;
+  position: relative;
+}
 .advantages-left h2 {
   font-family: 'Montserrat', sans-serif;
   font-size: clamp(32px, 4vw, 44px);
