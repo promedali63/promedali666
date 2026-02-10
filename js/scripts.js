@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }, {
-    root: null,
     threshold: 0.15,
     rootMargin: "0px 0px -10% 0px"
   });
