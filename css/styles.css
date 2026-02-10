@@ -212,7 +212,7 @@ body{
 
 .cta-title{
   font-family: Montserrat, Inter, Arial, sans-serif;
-  font-size: clamp(28px, 3.2vw, 42px); /* меньше на 2 размера */
+  font-size: clamp(28px, 3.2vw, 42px);
   font-weight:900;
   color: rgba(245,245,245,.95);
   letter-spacing:0.4px;
@@ -232,7 +232,7 @@ body{
 }
 
 .cta-subtitle{
-  font-size: clamp(13px, 1.6vw, 16px); /* меньше на 3 размера */
+  font-size: clamp(13px, 1.6vw, 16px);
   color: rgba(255,255,255,.82);
   max-width:720px;
   margin:0 auto;
