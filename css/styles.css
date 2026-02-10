@@ -29,30 +29,24 @@ body{ color:#111; }
 .brand{
   display:flex;
   align-items:center;
-  gap:14px;
-  text-decoration:none;
+  gap:8px;
 }
-
 /* PROMEDALI63 +2 размера */
 .brand-text{
-  font-weight: 900;
-  font-size: 24px; /* было 20 -> +2 размера */
-  letter-spacing: 1.2px;
-  color: rgba(240,240,240,0.95);
-  text-transform: uppercase;
-  text-shadow: 0 8px 22px rgba(0,0,0,0.35);
+  font-size:30px;
+  font-weight:900;
+  line-height:1;
+  display:flex;
+  align-items:center;        /* центр относительно логотипа */
 }
-
 /* ЛОГОТИП ПОСЛЕ ТЕКСТА, БОЛЬШЕ */
 .brand-logo{
-  height:80px !important;
-  width:80px !important;
-  object-fit:cover !important;     /* ← вместо contain */
-  object-position:center !important;
-  margin-left:0 !important;
-  transform:none !important;
-}
+  height:80px;
+  width:auto;
 
+  margin-left:-14px;         /* ← ЕЩЁ БЛИЖЕ к тексту */
+  transform:translateY(1px); /* точное выравнивание */
+}
 .nav{
   display:flex;
   gap: 24px;
