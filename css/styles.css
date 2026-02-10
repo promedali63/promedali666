@@ -1,38 +1,37 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: Arial, sans-serif;
+/* ===== Reset ===== */
+*{ margin:0; padding:0; box-sizing:border-box; }
+body{
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  color:#111;
+  background:#000;
 }
-
-body{ color:#111; }
 
 .wrap{
   width:min(1100px, calc(100% - 40px));
   margin:0 auto;
 }
 
-/* ===== HEADER ===== */
+/* ===== Header ===== */
 .header{
   position:fixed;
-  top:0;
-  left:0;
+  top:0; left:0;
   width:100%;
-  padding: 18px 44px;
+  padding:18px 44px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   z-index:100;
-  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0));
+  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,0));
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:8px;                 /* обычный gap, работает */
+  gap:6px;
   text-decoration:none;
-  color: rgba(240,240,240,.95);  /* чтобы ссылка не фиолетовая */
+  color: rgba(240,240,240,.95);
 }
+
 .brand:link,
 .brand:visited,
 .brand:hover,
@@ -41,379 +40,144 @@ body{ color:#111; }
   text-decoration:none;
 }
 
-.brand:hover{
-  text-decoration:none;
-}
-/* PROMEDALI63 +2 размера */
 .brand-text{
+  font-family: Montserrat, Inter, Arial, sans-serif;
   font-weight:900;
   font-size:28px;
   letter-spacing:1.6px;
   text-transform:uppercase;
   line-height:1;
+  text-shadow:0 8px 22px rgba(0,0,0,.35);
   display:flex;
   align-items:center;
-  color: rgba(240,240,240,.95);
 }
-/* ЛОГОТИП ПОСЛЕ ТЕКСТА, БОЛЬШЕ */
+
 .brand-logo{
-  height:80px;
+  height:80px;          /* большой логотип */
   width:auto;
   display:block;
-
-  margin-left:-18px;       /* ← ВОТ это реально приближает */
+  margin-left:-14px;    /* ближе к тексту */
   transform: translateY(1px);
+  object-fit: cover;
+  filter: drop-shadow(0 12px 26px rgba(0,0,0,.45));
 }
+
 .nav{
   display:flex;
-  gap: 24px;
+  gap:22px;
   align-items:center;
 }
-
-/* меню +2 размера */
 .nav a{
   text-decoration:none;
-  color: rgba(240,240,240,0.95);
-  font-weight: 800;
-  font-size: 18px; /* было 16 -> +2 размера */
-  letter-spacing: 0.2px;
-  text-shadow: 0 8px 22px rgba(0,0,0,0.35);
-  transition: 0.2s;
+  color: rgba(240,240,240,.95);
+  font-weight:800;
+  font-size:18px;
+  text-shadow:0 8px 22px rgba(0,0,0,.35);
+  transition:.2s;
 }
-.nav a:hover{ opacity:0.9; transform: translateY(-1px); }
+.nav a:hover{ opacity:.9; transform: translateY(-1px); }
 
-/* ===== HERO ===== */
+/* ===== Hero ===== */
 .hero{
-  height: 100vh;
+  height:100vh;
   background:
-    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+    linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
     url("../assets/medal-hero.jpg") center / cover no-repeat;
-
   display:flex;
   justify-content:center;
   align-items:center;
   text-align:center;
-  padding-top: 80px;
-  position:  relative;
-  overflow:  hidden;
-}
-.hero-content{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap: 18px;
-  padding: 0 20px;
-}
-
-.hero-title{
-  font-size: clamp(68px, 8.5vw, 120px);
-  letter-spacing: 4px;
-  line-height: 1;
-
-  background: linear-gradient(
-    180deg,
-    #f5f5f5 0%,
-    #cfcfcf 50%,
-    rgba(255,255,255,0) 100%
-  );
-  -webkit-background-clip:text;
-  background-clip:text;
-  color: transparent;
-  text-shadow: 0 18px 50px rgba(0,0,0,0.25);
-}
-
-.hero-subtitle{
-  font-size: clamp(18px, 2.2vw, 24px);
-  color: rgba(240,240,240,0.92);
-  max-width: 780px;
-  line-height: 1.35;
-}
-
-/* button */
-.btn{
-  padding: 14px 28px;
-  border-radius: 10px;
-  font-weight: 900;
-  text-decoration:none;
-  transition:0.2s;
-  display:inline-block;
-}
-
-.btn-turquoise{
-  background: #1abcbd;
-  color: #0b0b0b;
-  box-shadow: 0 16px 40px rgba(26,188,189,0.32);
-}
-.btn-turquoise:hover{ filter:brightness(1.05); transform:translateY(-2px); }
-
-/* ===== DARK SECTION ===== */
-.dark-section{
-  background:#111;
-  color:#fff;
-  padding: 110px 0;
-  text-align:center;
-}
-.dark-section h2{
-  font-size: clamp(26px, 3vw, 40px);
-  margin-bottom: 12px;
-}
-.dark-section p{
-  color: rgba(255,255,255,0.85);
-  font-size: 16px;
-}
-
-/* ===== ADVANTAGES ===== */
-.advantages{
-  background:#fff;
-  padding: 100px 44px;
-  display:flex;
-  gap: 60px;
-}
-
-.advantages-left{ 
-  width:40%;
-  position: relative;
-}
-.advantages-left h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(32px, 4vw, 44px);
-  font-weight: 800;
-  color: #f2f2f2;
-  line-height: 1.2;
-  letter-spacing: 0.5px;
-}
-
-.arrow{
-  margin-top:24px;
-  width: 140px;
-  height: 2px;
-  background:#111;
-  position:relative;
-}
-.arrow::after{
-  content:"";
-  position:absolute;
-  right:-12px;
-  top:50%;
-  transform: translateY(-50%);
-  border-left: 12px solid #111;
-  border-top: 7px solid transparent;
-  border-bottom: 7px solid transparent;
-}
-.advantages-left::after{
-  content:"";
-  position:absolute;
-  left:-40px;
-  top:120px;
-  width:420px;
-  height:420px;
-  border-radius:50%;
-  background:
-    radial-gradient(circle at 30% 30%, rgba(26,188,189,.18), transparent 60%),
-    radial-gradient(circle at 70% 70%, rgba(255,255,255,.08), transparent 55%);
-  filter: blur(1px);
-  opacity:.6;
-  pointer-events:none;
-}
-
-.advantages-right{ width:60%; }
-
-.adv-item{
-  display:flex;
-  gap:16px;
-  margin-bottom: 26px;
-}
-.adv-item span{
-  width:12px;
-  height:12px;
-  background:#444;
-  border-radius:50%;
-  margin-top: 8px;
-}
-.adv-item h3 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  color: #1abcb9; /* бирюза */
-  margin-bottom: 6px;
-}
-.adv-item p {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.75);
-}
-
-/* ===== Plain sections ===== */
-.plain{
-  padding: 90px 0;
-  background:#f2f2f2;
-}
-.plain.white{ background:#ffffff; }
-.plain h2{ font-size: 34px; margin-bottom: 10px; }
-.plain p{ color:#444; line-height:1.6; }
-
-/* ===== Scroll Reveal Animations ===== */
-.reveal{
-  opacity:0;
-  transform: translate3d(0, 24px, 0);
-  transition: opacity 750ms ease, transform 750ms ease;
-will-change: opacity, transform;
-}
-.reveal.is-visible{
-  opacity:1;
-  transform: translate3d(0,0,0);
-}
-.reveal-left{ transform: translate3d(-55px,0,0); }
-.reveal-right{ transform: translate3d(55px,0,0); }
-.reveal-up{ transform: translate3d(0,28px,0); }
-
-.reveal-left.is-visible,
-.reveal-right.is-visible,
-.reveal-up.is-visible{
-  transform: translate3d(0,0,0);
-}
-
-.reveal[data-delay="100"]{ transition-delay:100ms; }
-.reveal[data-delay="150"]{ transition-delay:150ms; }
-.reveal[data-delay="200"]{ transition-delay:200ms; }
-.reveal[data-delay="300"]{ transition-delay:300ms; }
-.reveal[data-delay="400"]{ transition-delay:400ms; }
-.reveal[data-delay="500"]{ transition-delay:500ms; }
-
-@media (prefers-reduced-motion: reduce){
-  .reveal, .reveal *{
-    transition:none !important;
-    transform:none !important;
-    opacity:1 !important;
-  }
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 980px){
-  .header{ padding: 14px 18px; }
-  .nav{ gap: 14px; }
-  .nav a{ font-size: 16px; }
-  .brand-text{ font-size: 22px; }
-  .brand-logo{ width: 54px; height: 54px; }
-
-  .advantages{
-    flex-direction:column;
-    padding: 80px 18px;
-  }
-  .advantages-left,.advantages-right{ width:100%; }
-}
-/* ===== CTA SLIDE (гармонично как HERO) ===== */
-.cta-slide{
-  padding:120px 0;
-  text-align:center;
+  padding-top:80px;
   position:relative;
   overflow:hidden;
-
-  /* просто темный фон */
-  background:#000;
-}
-/* ===== ЗВЁЗДНОЕ НЕБО ЗА ТЕКСТОМ ===== */
-/* ===== ЗВЁЗДНОЕ НЕБО (глубокий космос) ===== */
-.cta-slide::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  opacity:1;
-
-  background-image:
-    radial-gradient(1px 1px at 5% 20%, rgba(255,255,255,.9), transparent 60%),
-    radial-gradient(1px 1px at 12% 75%, rgba(255,255,255,.8), transparent 60%),
-    radial-gradient(1px 1px at 18% 40%, rgba(255,255,255,.7), transparent 60%),
-    radial-gradient(1px 1px at 25% 60%, rgba(255,255,255,.9), transparent 60%),
-    radial-gradient(2px 2px at 30% 25%, rgba(255,255,255,.5), transparent 70%),
-
-    radial-gradient(1px 1px at 40% 15%, rgba(255,255,255,.8), transparent 60%),
-    radial-gradient(1px 1px at 48% 50%, rgba(255,255,255,.7), transparent 60%),
-    radial-gradient(2px 2px at 55% 75%, rgba(255,255,255,.4), transparent 70%),
-
-    radial-gradient(1px 1px at 65% 30%, rgba(255,255,255,.9), transparent 60%),
-    radial-gradient(1px 1px at 72% 55%, rgba(255,255,255,.8), transparent 60%),
-    radial-gradient(2px 2px at 80% 20%, rgba(255,255,255,.45), transparent 70%),
-
-    radial-gradient(1px 1px at 88% 65%, rgba(255,255,255,.85), transparent 60%),
-    radial-gradient(2px 2px at 92% 35%, rgba(255,255,255,.4), transparent 70%);
-}
-/* плавное исчезновение сверху — без ступеньки */
-.cta-slide{
-  box-shadow: inset 0 120px 120px -120px rgba(0,0,0,1);
-}
-/* мягкая подсветка снизу как “дымка” */
-.cta-slide::after{
-  content:"";
-  position:absolute;
-  left:0; right:0; bottom:-1px;
-  height:140px;
-  background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,1));
-  pointer-events:none;
 }
 
-.cta-title{
-  font-size: clamp(28px, 3.2vw, 42px);
-  font-weight:900;
-  color: rgba(245,245,245,.95);
-  letter-spacing:0.5px;
-  text-shadow: 0 16px 40px rgba(0,0,0,.35);
-  margin-bottom:14px;
-}
-
-/* бирюзовый акцент как на кнопке */
-.cta-title::after{
-  content:"";
-  display:block;
-  width:120px;
-  height:3px;
-  margin:18px auto 0;
-  background:#1abcbd;
-  border-radius:3px;
-  box-shadow: 0 10px 30px rgba(26,188,189,.28);
-}
-.cta-subtitle{
-  font-size: clamp(13px, 1.6vw, 16px);
-  color: rgba(255,255,255,.82);
-  max-width:720px;
-  margin:0 auto;
-  line-height:1.5;
-}
-/* Плавный переход снизу первого экрана */
 .hero::after{
   content:"";
   position:absolute;
   left:0; right:0; bottom:-1px;
-  height:180px; /* можно 140–220 */
-  background: linear-gradient(
-    to bottom,
+  height:180px;
+  background: linear-gradient(to bottom,
     rgba(0,0,0,0) 0%,
     rgba(0,0,0,.55) 45%,
     rgba(0,0,0,1) 100%
   );
   pointer-events:none;
 }
-/* ===== НОЧНОЕ НЕБО СО ЗВЁЗДАМИ (CTA slide) ===== */
 
-/* фон CTA делаем более "чёрным", чтобы сливался с верхним экраном */
-.cta-slide{
-  background: radial-gradient(1200px 600px at 30% 20%, rgba(255,255,255,0.06), rgba(0,0,0,0) 55%),
-              radial-gradient(900px 500px at 70% 60%, rgba(26,188,189,0.08), rgba(0,0,0,0) 60%),
-              linear-gradient(180deg, #050607 0%, #000 100%);
+.hero-content{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+  padding:0 20px;
 }
 
-/* слой со звёздами */
+.hero-title{
+  font-family: Montserrat, Inter, Arial, sans-serif;
+  font-size: clamp(68px, 8.5vw, 120px);
+  letter-spacing:4px;
+  line-height:1;
+  background: linear-gradient(180deg,#f5f5f5 0%,#cfcfcf 50%,rgba(255,255,255,0) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  text-shadow:0 18px 50px rgba(0,0,0,.25);
+}
+
+.hero-subtitle{
+  font-size: clamp(18px,2.2vw,24px);
+  color: rgba(240,240,240,.92);
+  max-width:780px;
+  line-height:1.35;
+}
+
+.btn{
+  padding:14px 28px;
+  border-radius:10px;
+  font-weight:900;
+  text-decoration:none;
+  display:inline-block;
+  transition:.2s;
+}
+
+.btn-turquoise{
+  background:#1abcbd;
+  color:#0b0b0b;
+  box-shadow:0 16px 40px rgba(26,188,189,.32);
+}
+.btn-turquoise:hover{ filter:brightness(1.05); transform:translateY(-2px); }
+
+/* ===== CTA Slide (звёздное небо) ===== */
+.cta-slide{
+  padding:120px 0;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  background:#000;
+}
+
+/* Плавный вход сверху (без ступеньки) */
 .cta-slide::before{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:-1px;
+  height:180px;
+  background: linear-gradient(to top,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,.55) 45%,
+    rgba(0,0,0,1) 100%
+  );
+  pointer-events:none;
+}
+
+/* Ночное небо: много звезд разных размеров */
+.cta-slide::after{
   content:"";
   position:absolute;
   inset:0;
   pointer-events:none;
-  z-index:0;
   opacity:.95;
-
-  /* много точек разного размера */
   background:
     radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,.95), rgba(255,255,255,0)),
     radial-gradient(1px 1px at 25% 35%, rgba(255,255,255,.70), rgba(255,255,255,0)),
@@ -431,226 +195,307 @@ will-change: opacity, transform;
     radial-gradient(2px 2px at 58% 86%, rgba(255,255,255,.60), rgba(255,255,255,0)),
     radial-gradient(1px 1px at 69% 76%, rgba(255,255,255,.78), rgba(255,255,255,0)),
     radial-gradient(2px 2px at 88% 82%, rgba(255,255,255,.70), rgba(255,255,255,0)),
-
-    /* мелкая "пыль" звёзд (повторяющийся слой) */
     radial-gradient(circle, rgba(255,255,255,.22) 1px, rgba(255,255,255,0) 2px);
-
-  /* последний слой повторяем, чтобы было много мелких звёзд */
-  background-size:
-    auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,
-    140px 140px;
-
-  background-position:
-    0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,
-    0 0;
-
+  background-size: auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto, 140px 140px;
   filter: drop-shadow(0 0 6px rgba(255,255,255,.18));
   animation: starTwinkle 6s ease-in-out infinite;
 }
-
-/* чтобы текст был поверх звёзд */
-.cta-slide .wrap{ position:relative; z-index:2; }
-
 @keyframes starTwinkle{
-  0%,100% { opacity: .85; }
-  50%     { opacity: 1; }
+  0%,100%{ opacity:.85; }
+  50%{ opacity:1; }
 }
-/* ===== ADVANTAGES (3-й экран) — modern glass/timeline ===== */
 
+.cta-slide .wrap{
+  position:relative;
+  z-index:2;
+}
+
+.cta-title{
+  font-family: Montserrat, Inter, Arial, sans-serif;
+  font-size: clamp(28px, 3.2vw, 42px); /* меньше на 2 размера */
+  font-weight:900;
+  color: rgba(245,245,245,.95);
+  letter-spacing:0.4px;
+  margin-bottom:14px;
+  text-shadow:0 16px 40px rgba(0,0,0,.35);
+}
+
+.cta-title::after{
+  content:"";
+  display:block;
+  width:120px;
+  height:3px;
+  margin:18px auto 0;
+  background:#1abcbd;
+  border-radius:3px;
+  box-shadow:0 10px 30px rgba(26,188,189,.28);
+}
+
+.cta-subtitle{
+  font-size: clamp(13px, 1.6vw, 16px); /* меньше на 3 размера */
+  color: rgba(255,255,255,.82);
+  max-width:720px;
+  margin:0 auto;
+  line-height:1.5;
+}
+
+/* ===== Modern Advantages wrapper ===== */
 .modern-advantages{
-  position: relative;
-  padding: 110px 0;
-  overflow: hidden;
-
-  /* светлый современный фон */
-  background:
-    radial-gradient(900px 500px at 18% 25%, rgba(26,188,189,.14), rgba(255,255,255,0) 60%),
-    radial-gradient(900px 500px at 78% 70%, rgba(0,0,0,.06), rgba(255,255,255,0) 58%),
-    linear-gradient(180deg, #f5f7f9 0%, #eef2f5 100%);
+  background:#0b0f12;
+  position:relative;
+  overflow:hidden;
 }
 
-/* декоративные “пятна” */
-.modern-advantages::before,
-.modern-advantages::after{
-  content:"";
-  position:absolute;
-  width:520px;
-  height:520px;
-  border-radius:50%;
-  filter: blur(40px);
-  opacity:.55;
-  pointer-events:none;
-}
 .modern-advantages::before{
-  left:-180px;
-  top:-220px;
-  background: radial-gradient(circle, rgba(26,188,189,.65), rgba(26,188,189,0) 60%);
+  content:"";
+  position:absolute;
+  inset:-40px;
+  background:
+    radial-gradient(circle at 18% 30%, rgba(26,188,189,.16), transparent 55%),
+    radial-gradient(circle at 70% 25%, rgba(255,255,255,.07), transparent 55%),
+    radial-gradient(circle at 70% 85%, rgba(26,188,189,.10), transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.35), rgba(0,0,0,.65));
+  pointer-events:none;
+  z-index:0;
 }
+
 .modern-advantages::after{
-  right:-220px;
-  bottom:-280px;
-  background: radial-gradient(circle, rgba(0,0,0,.22), rgba(0,0,0,0) 60%);
-}
-
-.modern-advantages .advantages-left,
-.modern-advantages .advantages-right{
-  position: relative;
-  z-index: 2;
-}
-
-.modern-advantages .advantages{
-  /* если у тебя есть .advantages раньше — не трогаем */
-}
-
-.modern-advantages .advantages-left{
-  padding: 0 22px;
-}
-
-/* заголовок слева */
-.modern-advantages h2{
-  margin: 0 0 14px 0;
-  font-weight: 900;
-  letter-spacing: .3px;
-  color: rgba(12,14,16,.92);
-  font-size: clamp(28px, 3.2vw, 44px);
-  line-height: 1.08;
-}
-
-.modern-advantages .adv-lead{
-  margin: 0 0 22px 0;
-  max-width: 420px;
-  color: rgba(12,14,16,.60);
-  font-size: 15px;
-  line-height: 1.55;
-}
-
-/* “стрелка” слева — современная линия + наконечник */
-.modern-advantages .arrow{
-  width: 170px;
-  height: 3px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, rgba(26,188,189,1), rgba(26,188,189,.15));
-  position: relative;
-  box-shadow: 0 10px 26px rgba(26,188,189,.18);
-  margin-top: 10px;
-}
-.modern-advantages .arrow::after{
   content:"";
   position:absolute;
-  right:-8px;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  opacity:.9;
+  background-image:
+    radial-gradient(1px 1px at 12% 22%, rgba(255,255,255,.75) 50%, transparent 51%),
+    radial-gradient(1px 1px at 18% 62%, rgba(255,255,255,.65) 50%, transparent 51%),
+    radial-gradient(2px 2px at 22% 38%, rgba(255,255,255,.35) 50%, transparent 51%),
+    radial-gradient(1px 1px at 28% 78%, rgba(255,255,255,.55) 50%, transparent 51%),
+    radial-gradient(1px 1px at 33% 18%, rgba(255,255,255,.55) 50%, transparent 51%),
+    radial-gradient(2px 2px at 41% 44%, rgba(255,255,255,.25) 50%, transparent 51%),
+    radial-gradient(1px 1px at 46% 72%, rgba(255,255,255,.45) 50%, transparent 51%),
+    radial-gradient(1px 1px at 52% 28%, rgba(255,255,255,.55) 50%, transparent 51%),
+    radial-gradient(2px 2px at 60% 18%, rgba(255,255,255,.22) 50%, transparent 51%),
+    radial-gradient(1px 1px at 64% 62%, rgba(255,255,255,.55) 50%, transparent 51%),
+    radial-gradient(1px 1px at 70% 42%, rgba(255,255,255,.65) 50%, transparent 51%),
+    radial-gradient(2px 2px at 78% 78%, rgba(255,255,255,.25) 50%, transparent 51%),
+    radial-gradient(1px 1px at 82% 26%, rgba(255,255,255,.55) 50%, transparent 51%),
+    radial-gradient(1px 1px at 88% 58%, rgba(255,255,255,.55) 50%, transparent 51%);
+}
+
+/* ===== Advantages (контент) ===== */
+.advantages{
+  position:relative;
+  z-index:1;
+  padding:110px 56px;
+  display:flex;
+  gap:56px;
+  align-items:flex-start;
+}
+
+.advantages-left{
+  width:38%;
+  position:relative;
+}
+
+/* “дизайнерские штучки” слева: блик + линия */
+.advantages-left::after{
+  content:"";
+  position:absolute;
+  left:-40px;
+  top:120px;
+  width:420px;
+  height:420px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(26,188,189,.20), transparent 60%),
+    radial-gradient(circle at 70% 70%, rgba(255,255,255,.08), transparent 55%);
+  filter: blur(0.5px);
+  opacity:.7;
+  pointer-events:none;
+  z-index:0;
+}
+.advantages-left::before{
+  content:"";
+  position:absolute;
+  left:-10px;
+  top:270px;
+  width:260px;
+  height:1px;
+  background:linear-gradient(90deg, transparent, #1abdbd, transparent);
+  opacity:.85;
+  pointer-events:none;
+  z-index:0;
+}
+.advantages-left *{
+  position:relative;
+  z-index:1;
+}
+
+.advantages-left h2{
+  font-family: Montserrat, Inter, Arial, sans-serif;
+  font-size: clamp(30px, 3.2vw, 44px);
+  font-weight:900;
+  color: rgba(245,245,245,.96);
+  line-height:1.12;
+  letter-spacing:0.3px;
+  margin:0 0 14px 0;
+  text-shadow:0 12px 30px rgba(0,0,0,.35);
+}
+
+.advantages-note{
+  margin:0;
+  font-size:14px;
+  line-height:1.55;
+  color: rgba(255,255,255,.70);
+  max-width:340px;
+}
+
+.arrow{
+  margin-top:18px;
+  width:170px;
+  height:2px;
+  background: rgba(255,255,255,.25);
+  position:relative;
+}
+.arrow::after{
+  content:"";
+  position:absolute;
+  right:-2px;
   top:50%;
-  width: 14px;
-  height: 14px;
-  border-right: 3px solid rgba(26,188,189,1);
-  border-top: 3px solid rgba(26,188,189,1);
-  transform: translateY(-50%) rotate(45deg);
+  width:11px;
+  height:11px;
+  border-right:2px solid #1abdbd;
+  border-bottom:2px solid #1abdbd;
+  transform: translateY(-50%) rotate(-45deg);
+  filter: drop-shadow(0 6px 14px rgba(26,188,189,.25));
 }
 
-/* правая часть — таймлайн */
-.modern-advantages .advantages-right{
-  padding: 0 22px;
-  position: relative;
+.advantages-right{
+  width:62%;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
 }
 
-/* вертикальная линия таймлайна */
-.modern-advantages .advantages-right::before{
-  content:"";
-  position:absolute;
-  left: 34px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(180deg, rgba(26,188,189,.0), rgba(26,188,189,.35), rgba(26,188,189,.0));
-  opacity: .8;
-}
-
-/* карточка пункта */
-.modern-advantages .adv-item{
-  display: grid;
-  grid-template-columns: 76px 1fr;
-  gap: 18px;
-  align-items: start;
-
-  padding: 18px 18px;
-  margin: 0 0 16px 0;
-  border-radius: 18px;
-
-  background: rgba(255,255,255,.68);
-  border: 1px solid rgba(0,0,0,.06);
-  box-shadow: 0 18px 45px rgba(0,0,0,.06);
+.adv-item{
+  display:flex;
+  gap:16px;
+  padding:18px 18px;
+  border-radius:18px;
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow:0 18px 50px rgba(0,0,0,.35);
   backdrop-filter: blur(10px);
-
-  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
 }
 
-.modern-advantages .adv-item:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 26px 70px rgba(0,0,0,.10);
-  border-color: rgba(26,188,189,.22);
+.adv-badge{
+  min-width:44px;
+  height:44px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  font-size:13px;
+  letter-spacing:.4px;
+  color: rgba(255,255,255,.92);
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,.18), rgba(255,255,255,.06)),
+    linear-gradient(180deg, rgba(26,188,189,.22), rgba(0,0,0,0));
+  border:1px solid rgba(26,188,189,.30);
+  box-shadow:0 12px 26px rgba(26,188,189,.12);
 }
 
-/* номер слева + “точка” на линии */
-.modern-advantages .adv-num{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-
-  font-weight: 900;
-  letter-spacing: .6px;
-  color: rgba(12,14,16,.80);
-  background: linear-gradient(180deg, rgba(26,188,189,.22), rgba(26,188,189,.08));
-  border: 1px solid rgba(26,188,189,.22);
-  box-shadow: 0 14px 28px rgba(26,188,189,.10);
-
-  position: relative;
+.adv-body h3{
+  margin:0 0 6px 0;
+  font-size:18px;
+  font-weight:900;
+  color: rgba(245,245,245,.96);
+  letter-spacing:.2px;
 }
 
-/* круглая “точка” таймлайна */
-.modern-advantages .adv-num::before{
-  content:"";
-  position:absolute;
-  left:-24px;
-  top:50%;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  transform: translateY(-50%);
-  background: rgba(26,188,189,1);
-  box-shadow: 0 0 0 6px rgba(26,188,189,.18);
+.adv-body p{
+  margin:0;
+  font-size:14px;
+  line-height:1.55;
+  color: rgba(255,255,255,.72);
 }
 
-/* контент */
-.modern-advantages .adv-body h3{
-  margin: 0 0 6px 0;
-  font-size: 18px;
-  font-weight: 900;
-  color: rgba(12,14,16,.90);
+.adv-item:hover{
+  transform: translateY(-2px);
+  border-color: rgba(26,188,189,.25);
+  box-shadow: 0 22px 60px rgba(0,0,0,.42);
 }
 
-.modern-advantages .adv-body p{
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.55;
-  color: rgba(12,14,16,.62);
+/* ===== Plain sections ===== */
+.plain{
+  padding:90px 0;
+  background:#0b0f12;
+}
+.plain.white{
+  background:#0a0d10;
+}
+.plain h2{
+  font-family: Montserrat, Inter, Arial, sans-serif;
+  color: rgba(245,245,245,.95);
+  font-size:34px;
+  margin-bottom:10px;
+}
+.plain p{
+  color: rgba(255,255,255,.75);
+  line-height:1.6;
 }
 
-/* адаптив */
+/* ===== Reveal animation ===== */
+.reveal{
+  opacity:0;
+  transform: translate3d(0, 24px, 0);
+  transition: opacity 750ms ease, transform 750ms ease;
+  will-change: opacity, transform;
+}
+.reveal.is-visible{
+  opacity:1;
+  transform: translate3d(0,0,0);
+}
+.reveal-left{ transform: translate3d(-55px,0,0); }
+.reveal-right{ transform: translate3d(55px,0,0); }
+.reveal-up{ transform: translate3d(0,28px,0); }
+
+.reveal-left.is-visible,
+.reveal-right.is-visible,
+.reveal-up.is-visible{
+  transform: translate3d(0,0,0);
+}
+
+.reveal[data-delay="100"]{ transition-delay:100ms; }
+.reveal[data-delay="120"]{ transition-delay:120ms; }
+.reveal[data-delay="150"]{ transition-delay:150ms; }
+.reveal[data-delay="180"]{ transition-delay:180ms; }
+.reveal[data-delay="200"]{ transition-delay:200ms; }
+.reveal[data-delay="300"]{ transition-delay:300ms; }
+.reveal[data-delay="400"]{ transition-delay:400ms; }
+.reveal[data-delay="500"]{ transition-delay:500ms; }
+
+@media (prefers-reduced-motion: reduce){
+  .reveal, .reveal *{
+    transition:none !important;
+    transform:none !important;
+    opacity:1 !important;
+  }
+}
+
+/* ===== Responsive ===== */
 @media (max-width: 980px){
-  .modern-advantages{
-    padding: 90px 0;
-  }
-  .modern-advantages .advantages-right::before{
-    left: 30px;
-  }
-  .modern-advantages .adv-item{
-    grid-template-columns: 68px 1fr;
-  }
-  .modern-advantages .adv-num{
-    width: 52px;
-    height: 52px;
-  }
+  .header{ padding:14px 18px; }
+  .nav{ gap:14px; }
+  .nav a{ font-size:16px; }
+
+  .brand-text{ font-size:24px; }
+  .brand-logo{ height:62px; margin-left:-10px; }
+
+  .advantages{ flex-direction:column; padding:90px 22px; }
+  .advantages-left, .advantages-right{ width:100%; }
+  .advantages-left::after{ left:-120px; top:80px; width:380px; height:380px; opacity:.55; }
 }
