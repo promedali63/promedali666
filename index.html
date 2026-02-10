@@ -1,9 +1,16 @@
+Алина Нуруллина, [10.02.2026 22:02]
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PROMEDALI63</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Шрифты (премиальнее и современнее) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -16,6 +23,7 @@
 
   <nav class="nav reveal reveal-right" aria-label="Главное меню">
     <a href="#about">О нас</a>
+    <a href="#advantages">Преимущества</a>
     <a href="#catalog">Каталог</a>
     <a href="#delivery">Доставка</a>
     <a href="#contacts">Контакты</a>
@@ -37,7 +45,7 @@
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- 2 экран: CTA (звёздное небо, без ступеньки) -->
 <section class="cta-slide" id="about">
   <div class="wrap">
     <h2 class="cta-title reveal reveal-up">Создай свою индивидуальную медаль</h2>
@@ -46,66 +54,79 @@
     </p>
   </div>
 </section>
-<!-- ADVANTAGES -->
-<section class="advantages modern-advantages" id="advantages">
-  <div class="advantages-left">
-    <div class="adv-title-wrap reveal reveal-left">
-      <h2>
+
+<!-- 3 экран: ADVANTAGES (современный, необычный) -->
+<section class="modern-advantages">
+  <section class="advantages" id="advantages">
+
+    <div class="advantages-left">
+      <h2 class="reveal reveal-left">
         Почему стоит выбрать<br>
         индивидуальные медали
       </h2>
-      <p class="adv-lead">
-        5 причин, почему индивидуальный дизайн работает лучше “типовых” решений.
+
+      <p class="advantages-note reveal reveal-left" data-delay="120">
+        5 причин, почему индивидуальный дизайн работает сильнее, чем “типовое” решение.
       </p>
 
-      <div class="arrow reveal reveal-left" data-delay="150" aria-hidden="true"></div>
-    </div>
-  </div>
+      <div class="arrow reveal reveal-left" data-delay="180"></div>
 
-  <div class="advantages-right">
-    <div class="adv-item reveal reveal-right" data-delay="100">
-      <span class="adv-num">01</span>
-      <div class="adv-body">
-        <h3>Уникальность и идентичность</h3>
-        <p>Медаль, разработанная специально для вашего мероприятия, становится мощным символом вашей уникальной идентичности и ценностей.</p>
+      <!-- Если захочешь добавить картинку сюда — раскомментируй
+      <div class="advantages-image reveal reveal-left" data-delay="240">
+        <img src="assets/your-image.png" alt="Индивидуальные медали">
       </div>
+      -->
     </div>
 
-    <div class="adv-item reveal reveal-right" data-delay="200">
-      <span class="adv-num">02</span>
-      <div class="adv-body">
-        <h3>Память о событии</h3>
-        <p>Индивидуальная награда придает событию или достижению гораздо большую значимость и престиж, превращая награждение в незабываемый момент.</p>
-      </div>
-    </div>
+    <div class="advantages-right">
 
-    <div class="adv-item reveal reveal-right" data-delay="300">
-      <span class="adv-num">03</span>
-      <div class="adv-body">
-        <h3>Признание и уважение</h3>
-        <p>Это способ показать, что усилия и талант замечены и ценятся организаторами и обществом.</p>
+      <div class="adv-item reveal reveal-right" data-delay="100">
+        <div class="adv-badge">01</div>
+        <div class="adv-body">
+          <h3>Уникальность и идентичность</h3>
+          <p>Медаль, разработанная специально для вашего мероприятия, становится мощным символом идеи, ценностей и стиля.</p>
+        </div>
       </div>
-    </div>
 
-    <div class="adv-item reveal reveal-right" data-delay="400">
-      <span class="adv-num">04</span>
-      <div class="adv-body">
-        <h3>Престиж мероприятия</h3>
-        <p>Качественные и красивые медали повышают статус мероприятий, привлекая больше участников.</p>
+      <div class="adv-item reveal reveal-right" data-delay="200">
+        <div class="adv-badge">02</div>
+        <div class="adv-body">
+          <h3>Память о событии</h3>
+          <p>Индивидуальная награда повышает значимость достижения и превращает награждение в незабываемый момент.</p>
+        </div>
       </div>
-    </div>
 
-    <div class="adv-item reveal reveal-right" data-delay="500">
-      <span class="adv-num">05</span>
-      <div class="adv-body">
-        <h3>Персонализация</h3>
-        <p>Возможность нанесения имени, даты и названия делает медаль уникальной и более значимой.</p>
+      <div class="adv-item reveal reveal-right" data-delay="300">
+        <div class="adv-badge">03</div>
+        <div class="adv-body">
+          <h3>Признание и уважение</h3>
+          <p>Это способ показать, что усилия и талант замечены и ценятся организаторами и обществом.</p>
+        </div>
       </div>
+
+      <div class="adv-item reveal reveal-right" data-delay="400">
+        <div class="adv-badge">04</div>
+        <div class="adv-body">
+          <h3>Престиж мероприятия</h3>
+          <p>Качественные и красивые медали повышают статус мероприятия и помогают привлекать больше участников.</p>
+        </div>
+      </div>
+
+      <div class="adv-item reveal reveal-right" data-delay="500">
+        <div class="adv-badge">05</div>
+        <div class="adv-body">
+
+Алина Нуруллина, [10.02.2026 22:02]
+<h3>Персонализация</h3>
+          <p>Имя, дата, название, фирменные символы делают медаль уникальной и более значимой.</p>
+        </div>
+      </div>
+
     </div>
-  </div>
+  </section>
 </section>
 
-<!-- Заглушки под меню -->
+<!-- Заглушки -->
 <section id="catalog" class="plain">
   <div class="wrap">
     <h2 class="reveal reveal-left">Каталог</h2>
