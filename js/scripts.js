@@ -1,18 +1,15 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const items = document.querySelectorAll(".reveal");
-  if (!items.length) return;
+// Reveal animations (появление при скролле)
+const revealEls = document.querySelectorAll(".reveal");
 
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        io.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.15,
-    rootMargin: "0px 0px -10% 0px"
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) {
+      const delay = e.target.getAttribute("data-delay");
+      if (delay) e.target.style.transitionDelay = `${delay}ms`;
+      e.target.classList.add("is-visible");
+      obs.unobserve(e.target);
+    }
   });
+}, { threshold: 0.14 });
 
-  items.forEach(el => io.observe(el));
-});
+revealEls.forEach(el => obs.observe(el));
