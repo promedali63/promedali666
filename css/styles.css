@@ -1173,4 +1173,50 @@ body{
 .apple-card:not(.is-active) .apple-card__body h3{
   color: rgba(245,245,247,.88);
 }
+/* ===== FULL APPLE: snap + animated header ===== */
 
+/* лёгкая “липкость” к карточкам (плавная, не дёргает) */
+.apple-scrolly__right{
+  scroll-snap-type: y proximity;
+}
+
+.apple-card{
+  scroll-snap-align: start;
+}
+
+/* чтобы при скролле якорями не уезжало под fixed header */
+#offer{ scroll-margin-top: 110px; }
+
+/* заголовок будет анимироваться через CSS-переменные */
+.apple-scrolly__left{
+  --t: 0; /* 0..1 */
+}
+
+.apple-scrolly__title{
+  transform: translateY(calc(var(--t) * -10px)) scale(calc(1 - (var(--t) * 0.06)));
+  opacity: calc(1 - (var(--t) * 0.25));
+  filter: blur(calc(var(--t) * 0.6px));
+  transform-origin: left top;
+  transition: none;
+}
+
+.apple-scrolly__subtitle{
+  transform: translateY(calc(var(--t) * -6px));
+  opacity: calc(1 - (var(--t) * 0.35));
+  filter: blur(calc(var(--t) * 0.8px));
+  transition: none;
+}
+
+.apple-scrolly__progress{
+  opacity: calc(1 - (var(--t) * 0.25));
+}
+
+/* более Apple-ный easing на карточках */
+.apple-card{
+  transition: transform 520ms cubic-bezier(.2,.8,.2,1),
+              opacity 520ms cubic-bezier(.2,.8,.2,1),
+              filter 520ms cubic-bezier(.2,.8,.2,1),
+              border-color 520ms cubic-bezier(.2,.8,.2,1),
+              background 520ms cubic-bezier(.2,.8,.2,1),
+              box-shadow 520ms cubic-bezier(.2,.8,.2,1);
+}
