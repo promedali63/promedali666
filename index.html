@@ -110,65 +110,78 @@
   </section>
 </section>
 
-<section class="apple-offer" id="offer">
-  <div class="apple-container">
+<section class="apple-scrolly" id="offer">
+  <div class="apple-scrolly__inner">
 
-    <div class="apple-head">
-      <h2 class="apple-title reveal reveal-up">
+    <!-- LEFT (sticky) -->
+    <div class="apple-scrolly__left">
+      <div class="apple-scrolly__kicker reveal reveal-left">Сервис</div>
+
+      <h2 class="apple-scrolly__title reveal reveal-left">
         Мы предлагаем
       </h2>
 
-      <p class="apple-sub reveal reveal-up" data-delay="150">
-        Индивидуальные решения премиального уровня.
-        От идеи до момента награждения.
+      <p class="apple-scrolly__subtitle reveal reveal-left" data-delay="120">
+        Премиальный подход к каждой детали — дизайн, производство, сроки и документы.
       </p>
+
+      <div class="apple-scrolly__meta reveal reveal-left" data-delay="180">
+        <span class="apple-scrolly__metaLabel">Сейчас:</span>
+        <span class="apple-scrolly__metaValue" id="appleOfferCurrent">01 / 05</span>
+      </div>
+
+      <div class="apple-scrolly__progress" aria-hidden="true">
+        <span class="apple-scrolly__progressBar" id="appleOfferProgress"></span>
+      </div>
     </div>
 
-    <div class="apple-list">
+    <!-- RIGHT (cards) -->
+    <div class="apple-scrolly__right" id="appleOfferList">
 
-      <div class="apple-item reveal reveal-up" data-delay="200">
-        <span class="apple-index">01</span>
-        <div>
+      <article class="apple-card" data-step="1">
+        <div class="apple-card__idx">01</div>
+        <div class="apple-card__body">
           <h3>Полная свобода дизайна</h3>
-          <p>Создаем уникальные медали по вашему эскизу или разрабатываем дизайн с нуля.</p>
+          <p>Изготовим медали по вашему эскизу или нашему дизайну. Любые цвета, форма, ленты, гравировка. Создаём уникальные медали с вашим логотипом.</p>
         </div>
-      </div>
+      </article>
 
-      <div class="apple-item reveal reveal-up" data-delay="250">
-        <span class="apple-index">02</span>
-        <div>
-          <h3>Гибкость и масштаб</h3>
-          <p>Работаем с любым объемом — от 100 участников до крупных мероприятий.</p>
+      <article class="apple-card" data-step="2">
+        <div class="apple-card__idx">02</div>
+        <div class="apple-card__body">
+          <h3>Гибкость и индивидуальный подход</h3>
+          <p>Выполняем заказы любого объема — от 100 участников до массовых мероприятий.</p>
         </div>
-      </div>
+      </article>
 
-      <div class="apple-item reveal reveal-up" data-delay="300">
-        <span class="apple-index">03</span>
-        <div>
-          <h3>Конкурентная стоимость</h3>
-          <p>Прямое производство без посредников формирует прозрачную цену.</p>
+      <article class="apple-card" data-step="3">
+        <div class="apple-card__idx">03</div>
+        <div class="apple-card__body">
+          <h3>Конкурентные цены</h3>
+          <p>Работа без посредников позволяет формировать привлекательную стоимость.</p>
         </div>
-      </div>
+      </article>
 
-      <div class="apple-item reveal reveal-up" data-delay="350">
-        <span class="apple-index">04</span>
-        <div>
+      <article class="apple-card" data-step="4">
+        <div class="apple-card__idx">04</div>
+        <div class="apple-card__body">
           <h3>Скорость и надежность</h3>
-          <p>Строго соблюдаем сроки. Награждение должно пройти идеально.</p>
+          <p>Строго соблюдаем сроки изготовления. Пропустить награждение из-за задержки — недопустимо.</p>
         </div>
-      </div>
+      </article>
 
-      <div class="apple-item reveal reveal-up" data-delay="400">
-        <span class="apple-index">05</span>
-        <div>
-          <h3>Официальные документы</h3>
-          <p>Работаем по договору. Предоставляем счет и спецификацию.</p>
+      <article class="apple-card" data-step="5">
+        <div class="apple-card__idx">05</div>
+        <div class="apple-card__body">
+          <h3>Легальность и документы</h3>
+          <p>Работаем официально по договору. Предоставляем договор, счет и спецификацию. Оплата по безналичному расчету на расчетный счет ИП.</p>
         </div>
-      </div>
+      </article>
 
     </div>
   </div>
 </section>
+
 
 
 <section id="catalog" class="plain">
