@@ -241,34 +241,11 @@ body{
 
 /* ===== Modern Advantages wrapper ===== */
 .modern-advantages{
+  background:#0b0f12;
   position:relative;
   overflow:hidden;
+}
 
-  /* Плавный переход из чёрного в зелёный */
-  background:
-    linear-gradient(
-      180deg,
-      #000000 0%,
-      #020505 20%,
-      #061212 40%,
-      #0b1f20 65%,
-      #0c2424 85%,
-      #0f2f2e 100%
-    );
-}
-.modern-advantages::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(
-      circle at 30% 85%,
-      rgba(26,188,189,.25),
-      transparent 55%
-    );
-  pointer-events:none;
-  z-index:0;
-}
 .modern-advantages::before{
   content:"";
   position:absolute;
