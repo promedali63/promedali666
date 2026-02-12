@@ -715,3 +715,140 @@ body{
   }
   .offer-card-wide{ grid-column: auto; }
 }
+/* ===============================
+   LUXURY OFFER BLOCK
+================================= */
+
+.lux-offer{
+  position: relative;
+  padding: 140px 60px;
+  background:
+    radial-gradient(800px 500px at 20% 10%, rgba(26,188,189,.18), transparent 60%),
+    radial-gradient(900px 600px at 80% 90%, rgba(255,255,255,.06), transparent 60%),
+    linear-gradient(180deg, #040606 0%, #050a0b 50%, #040606 100%);
+  overflow: hidden;
+}
+
+.lux-container{
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  gap: 80px;
+}
+
+.lux-left{
+  width: 35%;
+}
+
+.lux-label{
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+  margin-bottom: 20px;
+}
+
+.lux-left h2{
+  font-size: clamp(40px, 4vw, 64px);
+  font-weight: 900;
+  line-height: 1.05;
+  margin: 0 0 20px;
+  color: #f2f2f2;
+  letter-spacing: .5px;
+}
+
+.lux-sub{
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255,255,255,.65);
+  max-width: 400px;
+}
+
+/* правая часть */
+
+.lux-right{
+  width: 65%;
+  position: relative;
+  padding-left: 60px;
+}
+
+.lux-line{
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(26,188,189,.8),
+    transparent
+  );
+  opacity: .6;
+}
+
+.lux-item{
+  position: relative;
+  display: flex;
+  gap: 25px;
+  padding: 35px 30px;
+  margin-bottom: 28px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.08);
+  transition: all .35s ease;
+}
+
+.lux-item:hover{
+  transform: translateY(-6px);
+  border-color: rgba(26,188,189,.4);
+  box-shadow:
+    0 40px 90px rgba(0,0,0,.6),
+    0 0 30px rgba(26,188,189,.15);
+}
+
+.lux-number{
+  font-size: 22px;
+  font-weight: 900;
+  color: rgba(26,188,189,.9);
+  min-width: 40px;
+}
+
+.lux-content h3{
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #f3f3f3;
+}
+
+.lux-content p{
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: rgba(255,255,255,.65);
+}
+
+/* адаптив */
+
+@media (max-width: 980px){
+  .lux-container{
+    flex-direction: column;
+  }
+
+  .lux-left, .lux-right{
+    width: 100%;
+  }
+
+  .lux-right{
+    padding-left: 40px;
+  }
+
+  .lux-line{
+    left: 10px;
+  }
+}
