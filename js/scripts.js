@@ -1,41 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const items = document.querySelectorAll(".reveal");
-  if (!items.length) return;
 
-  // apply delays from data-delay
-  items.forEach((el) => {
-    const d = el.getAttribute("data-delay");
-    if (d) {
-      const ms = parseInt(d, 10);
-      if (!Number.isNaN(ms)) el.style.transitionDelay = `${ms}ms`;
-    }
+  const revealElements = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealElements.forEach(el => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(40px)";
+    el.style.transition = "all .8s cubic-bezier(.2,.8,.2,1)";
+    observer.observe(el);
   });
 
-  const makeVisible = (el) => {
-    el.classList.add("is-visible", "active", "visible");
-  };
-
-  // Respect reduced motion
-  const prefersReducedMotion =
-    window.matchMedia &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
-    items.forEach(makeVisible);
-    return;
-  }
-
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          makeVisible(entry.target);
-          io.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
-  );
-
-  items.forEach((el) => io.observe(el));
 });
