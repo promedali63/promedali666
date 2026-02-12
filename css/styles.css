@@ -672,3 +672,7 @@ body{
     width: 100%;
   }
 }
+.nav a.is-active{
+  color:#1abdbd;
+  text-shadow: 0 0 16px rgba(26,188,189,.35);
+}
