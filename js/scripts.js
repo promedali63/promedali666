@@ -191,8 +191,10 @@ window.addEventListener("keydown", enableSnapOnFirstUserScroll);
       const idx = updateApple();
       lastIdx = idx;
 
-      // snap только если motion разрешен
-      if (!prefersReducedMotion) scheduleSnap(idx);
+      // snap только если пользователь начал скроллить
+if (!prefersReducedMotion && userStartedScrolling) {
+  scheduleSnap(idx);
+}
 
       ticking = false;
     });
