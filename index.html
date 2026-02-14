@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="no-js">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -7,9 +7,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.remove('no-js');</script>
 </head>
 <body>
 
@@ -23,12 +24,14 @@
     <a href="#about">О нас</a>
     <a href="#advantages">Преимущества</a>
     <a href="#offer">Мы предлагаем</a>
+    <a href="#process">Процесс</a>
     <a href="#catalog">Каталог</a>
     <a href="#delivery">Доставка</a>
     <a href="#contacts">Контакты</a>
   </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-content">
     <h1 class="hero-title reveal reveal-up">PROMEDALI63</h1>
@@ -41,7 +44,7 @@
   </div>
 </section>
 
-<!-- ЗВЕЗДНОЕ НЕБО (как у тебя было) -->
+<!-- CTA / STAR SKY -->
 <section class="cta-slide" id="about">
   <div class="wrap">
     <h2 class="cta-title reveal reveal-up">Создай свою индивидуальную медаль</h2>
@@ -54,7 +57,6 @@
 <!-- ADVANTAGES -->
 <section class="modern-advantages">
   <section class="advantages" id="advantages">
-
     <div class="advantages-left">
       <h2 class="reveal reveal-left">
         Почему стоит выбрать<br>
@@ -109,116 +111,125 @@
         </div>
       </div>
     </div>
-
   </section>
 </section>
 
-<!-- OFFER (такой же стиль, без Apple, без прыжков) -->
-<section class="modern-offer">
-  <section class="advantages" id="offer">
-
-    <div class="advantages-left">
-      <h2 class="reveal reveal-left">
-        Мы предлагаем
-      </h2>
-
-      <p class="advantages-note reveal reveal-left" data-delay="120">
+<!-- OFFER (same logic as advantages, but "more expensive") -->
+<section class="offer" id="offer">
+  <div class="wrap offer-inner">
+    <div class="offer-left">
+      <h2 class="reveal reveal-left">Мы предлагаем</h2>
+      <p class="offer-note reveal reveal-left" data-delay="120">
         Всё, что нужно для премиального результата — от дизайна до документов.
       </p>
-
       <div class="arrow reveal reveal-left" data-delay="180"></div>
     </div>
 
-    <div class="advantages-right">
-      <div class="adv-item reveal reveal-right" data-delay="100">
-        <div class="adv-badge">01</div>
-        <div class="adv-body">
+    <div class="offer-right">
+      <div class="offer-item reveal reveal-right" data-delay="100">
+        <div class="offer-badge">01</div>
+        <div class="offer-body">
           <h3>Полная свобода дизайна</h3>
           <p>Изготовим медали по вашему эскизу или нашему дизайну. Любые цвета, форма, ленты, гравировка. Создаём уникальные медали с вашим логотипом.</p>
         </div>
       </div>
 
-      <div class="adv-item reveal reveal-right" data-delay="200">
-        <div class="adv-badge">02</div>
-        <div class="adv-body">
+      <div class="offer-item reveal reveal-right" data-delay="200">
+        <div class="offer-badge">02</div>
+        <div class="offer-body">
           <h3>Гибкость и индивидуальный подход</h3>
           <p>Выполняем заказы любого объема — от 100 участников до массовых мероприятий.</p>
         </div>
       </div>
 
-      <div class="adv-item reveal reveal-right" data-delay="300">
-        <div class="adv-badge">03</div>
-        <div class="adv-body">
+      <div class="offer-item reveal reveal-right" data-delay="300">
+        <div class="offer-badge">03</div>
+        <div class="offer-body">
           <h3>Конкурентные цены</h3>
           <p>Работа без посредников позволяет формировать привлекательную стоимость.</p>
         </div>
       </div>
 
-      <div class="adv-item reveal reveal-right" data-delay="400">
-        <div class="adv-badge">04</div>
-        <div class="adv-body">
+      <div class="offer-item reveal reveal-right" data-delay="400">
+        <div class="offer-badge">04</div>
+        <div class="offer-body">
           <h3>Скорость и надежность</h3>
-          <p>Строго соблюдаем сроки изготовления. Пропустить награждение из‑за задержки — недопустимо.</p>
+          <p>Строго соблюдаем сроки изготовления. Пропустить награждение из-за задержки — недопустимо.</p>
         </div>
       </div>
 
-      <div class="adv-item reveal reveal-right" data-delay="500">
-        <div class="adv-badge">05</div>
-        <div class="adv-body">
+      <div class="offer-item reveal reveal-right" data-delay="500">
+        <div class="offer-badge">05</div>
+        <div class="offer-body">
           <h3>Легальность и документы</h3>
-          <p>Работаем официально по договору. Предоставляем договор, счёт и спецификацию. Оплата по безналичному расчёту на расчётный счёт ИП.</p>
+          <p>Работаем официально по договору. Предоставляем договор, счет и спецификацию. Оплата по безналичному расчету на расчетный счет ИП.</p>
         </div>
       </div>
     </div>
-
-  
-<!-- PROCESS -->
-<section class="modern-process" id="process">
-  <div class="wrap">
-    <h2 class="process-title reveal reveal-up">Процесс от идеи до награды</h2>
-    <p class="process-subtitle reveal reveal-up" data-delay="120">
-      От первой идеи до готовых медалей — понятно, прозрачно и в срок.
-    </p>
-  </div>
-
-  <div class="process-track wrap">
-    <div class="process-line" aria-hidden="true"></div>
-
-    <article class="process-step reveal reveal-up" data-delay="80" tabindex="0">
-      <div class="process-dot"><span class="process-num">1</span></div>
-      <h3>Консультация и Дизайн-Брифинг</h3>
-      <p>Обсуждаем Вашу идею. Помогаем с разработкой макета. Наш дизайнер создаст 2D эскиз, учитывая все пожелания.</p>
-    </article>
-
-    <article class="process-step reveal reveal-up" data-delay="160" tabindex="0">
-      <div class="process-dot"><span class="process-num">2</span></div>
-      <h3>Утверждение Макета</h3>
-      <p>Вы утверждаете макет. Просчитывается итоговая стоимость.</p>
-    </article>
-
-    <article class="process-step reveal reveal-up" data-delay="240" tabindex="0">
-      <div class="process-dot"><span class="process-num">3</span></div>
-      <h3>Изготовление и Качество</h3>
-      <p>Начинается серийное производство. Мы используем новейшие технологии и строгий контроль качества. Срок изготовления медалей зависит от сложности дизайна и тиража.</p>
-    </article>
-
-    <article class="process-step reveal reveal-up" data-delay="320" tabindex="0">
-      <div class="process-dot"><span class="process-num">4</span></div>
-      <h3>Упаковка и Доставка</h3>
-      <p>Готовые медали тщательно упаковываются и доставляются Вам, готовые к торжественному вручению. Срок доставки от 25 дней.</p>
-    </article>
   </div>
 </section>
 
+<!-- PROCESS (must be BELOW offer) -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="process-head">
+      <h2 class="process-title reveal reveal-up">Процесс от идеи до награды</h2>
+      <p class="process-subtitle reveal reveal-up" data-delay="120">
+        От первой идеи до готовых медалей — понятно, прозрачно и в срок.
+      </p>
+    </div>
 
-<div class="plain">
+    <div class="process-timeline" aria-label="Этапы производства">
+      <div class="process-line" aria-hidden="true">
+        <span class="process-line__fill" id="processFill"></span>
+      </div>
+
+      <div class="process-steps" id="processSteps">
+        <article class="pstep reveal reveal-up" data-delay="80">
+          <button class="pstep-dot" type="button" aria-label="Этап 1"></button>
+          <div class="pstep-card">
+            <h3><span class="pstep-idx">1.</span> Консультация и Дизайн-Брифинг</h3>
+            <p>Обсуждаем Вашу идею. Помогаем с разработкой макета. Наш дизайнер создаст 2D эскиз, учитывая все пожелания.</p>
+          </div>
+        </article>
+
+        <article class="pstep reveal reveal-up" data-delay="140">
+          <button class="pstep-dot" type="button" aria-label="Этап 2"></button>
+          <div class="pstep-card">
+            <h3><span class="pstep-idx">2.</span> Утверждение Макета</h3>
+            <p>Вы утверждаете макет. Просчитывается итоговая стоимость.</p>
+          </div>
+        </article>
+
+        <article class="pstep reveal reveal-up" data-delay="200">
+          <button class="pstep-dot" type="button" aria-label="Этап 3"></button>
+          <div class="pstep-card">
+            <h3><span class="pstep-idx">3.</span> Изготовление и Качество</h3>
+            <p>Начинается серийное производство. Новейшие технологии и строгий контроль качества. Срок зависит от сложности дизайна и тиража.</p>
+          </div>
+        </article>
+
+        <article class="pstep reveal reveal-up" data-delay="260">
+          <button class="pstep-dot" type="button" aria-label="Этап 4"></button>
+          <div class="pstep-card">
+            <h3><span class="pstep-idx">4.</span> Упаковка и Доставка</h3>
+            <p>Медали тщательно упаковываются и доставляются Вам, готовые к вручению. Срок доставки от 25 дней.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT SECTIONS -->
+<section id="catalog" class="plain">
   <div class="wrap">
     <h2 class="reveal reveal-left">Каталог</h2>
     <p class="reveal reveal-right" data-delay="150">Позже сделаем отдельную страницу или блок на этой странице.</p>
   </div>
 </section>
 
-<section id="delivery" class="plain white">
+<section id="delivery" class="plain">
   <div class="wrap">
     <h2 class="reveal reveal-left">Доставка</h2>
     <p class="reveal reveal-right" data-delay="150">Добавим варианты доставки и сроки.</p>
