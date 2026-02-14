@@ -157,7 +157,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.scrollTo({ top, behavior: "smooth" });
   };
+let userStartedScrolling = false;
 
+const enableSnapOnFirstUserScroll = () => {
+  userStartedScrolling = true;
+  window.removeEventListener("wheel", enableSnapOnFirstUserScroll);
+  window.removeEventListener("touchstart", enableSnapOnFirstUserScroll);
+  window.removeEventListener("keydown", enableSnapOnFirstUserScroll);
+};
+
+// Включаем snap только после первого действия пользователя
+window.addEventListener("wheel", enableSnapOnFirstUserScroll, { passive: true });
+window.addEventListener("touchstart", enableSnapOnFirstUserScroll, { passive: true });
+window.addEventListener("keydown", enableSnapOnFirstUserScroll);
   const scheduleSnap = (activeIdx) => {
     // чтобы не мешало ручному скроллу: ждём, пока пользователь “остановится”
     clearTimeout(snapTimer);
