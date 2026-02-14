@@ -1220,3 +1220,26 @@ body{
               background 520ms cubic-bezier(.2,.8,.2,1),
               box-shadow 520ms cubic-bezier(.2,.8,.2,1);
 }
+/* ===== Safe reveal: текст НЕ пропадает, если JS не загрузился ===== */
+.reveal{
+  opacity: 1;
+  transform: none;
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+/* Скрываем reveal ТОЛЬКО если JS реально включился */
+html.js .reveal{
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+html.js .reveal.reveal-left{ transform: translateX(-22px); }
+html.js .reveal.reveal-right{ transform: translateX(22px); }
+html.js .reveal.reveal-up{ transform: translateY(18px); }
+
+html.js .reveal.is-visible,
+html.js .reveal.active,
+html.js .reveal.visible{
+  opacity: 1;
+  transform: none;
+}
