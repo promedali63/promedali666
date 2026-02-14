@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!Number.isNaN(ms)) el.style.transitionDelay = `${ms}ms`;
     }
   });
+  if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
   const makeVisible = (el) => el.classList.add("is-visible", "active", "visible");
 
   const prefersReducedMotion =
