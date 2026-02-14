@@ -170,7 +170,7 @@ const enableSnapOnFirstUserScroll = () => {
 window.addEventListener("wheel", enableSnapOnFirstUserScroll, { passive: true });
 window.addEventListener("touchstart", enableSnapOnFirstUserScroll, { passive: true });
 window.addEventListener("keydown", enableSnapOnFirstUserScroll);
-  const scheduleSnap = (activeIdx) => {
+ // const scheduleSnap = (activeIdx) => {
     // чтобы не мешало ручному скроллу: ждём, пока пользователь “остановится”
     clearTimeout(snapTimer);
     snapTimer = setTimeout(() => {
