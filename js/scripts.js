@@ -1,16 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Не даём браузеру “восстанавливать” скролл и прыгать
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+
   // ===== Reveal (совместимо с is-visible/active/visible) =====
   const revealItems = Array.from(document.querySelectorAll(".reveal"));
+
   revealItems.forEach((el) => {
     const d = el.getAttribute("data-delay");
     if (d) {
       const ms = parseInt(d, 10);
-      if (!Number.isNaN(ms)) el.style.transitionDelay = `${ms}ms`;
+      if (!Number.isNaN(ms)) el.style.transitionDelay = ${ms}ms;
     }
   });
-  if ("scrollRestoration" in history) {
-  history.scrollRestoration = "manual";
-}
+
   const makeVisible = (el) => el.classList.add("is-visible", "active", "visible");
 
   const prefersReducedMotion =
@@ -44,11 +48,13 @@ document.addEventListener("DOMContentLoaded", () => {
     link.addEventListener("click", (e) => {
       const href = link.getAttribute("href");
       if (!href || href === "#") return;
+
       const id = href.slice(1);
       const target = document.getElementById(id);
       if (!target) return;
 
       e.preventDefault();
+
       const top =
         target.getBoundingClientRect().top +
         window.pageYOffset -
@@ -68,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentEl = document.getElementById("appleOfferCurrent");
   const progressEl = document.getElementById("appleOfferProgress");
 
+  // Если блока нет — просто выходим (остальное работает)
   if (!scrolly || !cards.length) return;
 
   const total = cards.length;
@@ -75,23 +82,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const lerp = (a, b, t) => a + (b - a) * t;
 
   const SETTINGS = {
-    focusY: 0.45,      // фокус чуть выше центра
-    radius: 0.58,      // радиус влияния (высота экрана)
+    focusY: 0.45, // фокус чуть выше центра
+    radius: 0.58, // радиус влияния (высота экрана)
     maxBlur: 6,
     minScale: 0.965,
     maxScale: 1.0,
     minOpacity: 0.42,
-    maxOpacity: 1.0
+    maxOpacity: 1.0,
   };
 
-  const getRects = (focusYpx) => {
-    return cards.map((card) => {
+  const getRects = (focusYpx) =>
+    cards.map((card) => {
       const r = card.getBoundingClientRect();
       const center = r.top + r.height / 2;
       const dist = Math.abs(center - focusYpx);
       return { card, r, center, dist };
     });
-  };
 
   const updateApple = () => {
     const focusYpx = window.innerHeight * SETTINGS.focusY;
@@ -110,17 +116,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     rects.forEach((x, i) => {
-      const t = clamp(x.dist / radiusPx, 0, 1);      // 0..1
-      const ease = 1 - Math.pow(t, 1.6);             // Apple-like curve
+      const t = clamp(x.dist / radiusPx, 0, 1); // 0..1
+      const ease = 1 - Math.pow(t, 1.6); // Apple-like curve
 
       const scale = lerp(SETTINGS.minScale, SETTINGS.maxScale, ease);
       const opacity = lerp(SETTINGS.minOpacity, SETTINGS.maxOpacity, ease);
       const blur = lerp(SETTINGS.maxBlur, 0, ease);
       const lift = lerp(18, 0, ease);
 
-      x.card.style.transform = `translateY(${lift}px) scale(${scale})`;
-      x.card.style.opacity = `${opacity}`;
-      x.card.style.filter = `blur(${blur}px)`;
+      x.card.style.transform = translateY(${lift}px) scale(${scale});
+      x.card.style.opacity = ${opacity};
+      x.card.
+style.filter = blur(${blur}px);
 
       x.card.classList.toggle("is-active", i === bestIdx);
       x.card.classList.toggle("is-next", i === bestIdx + 1);
@@ -129,16 +136,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // счетчик + прогресс
     const step = bestIdx + 1;
     if (currentEl) {
-      currentEl.textContent = `${String(step).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
+      currentEl.textContent = ${String(step).padStart(2, "0")} / ${String(total).padStart(2, "0")};
     }
     const p = ((step - 1) / (total - 1 || 1)) * 100;
-    if (progressEl) progressEl.style.width = `${clamp(p, 0, 100)}%`;
+    if (progressEl) progressEl.style.width = ${clamp(p, 0, 100)}%;
 
     // анимация левого sticky блока (0..1)
-    // прогресс секции относительно окна (очень по-Apple)
     if (left) {
       const sr = scrolly.getBoundingClientRect();
-      const scrollSpan = sr.height - window.innerHeight;     // сколько “прокрутки” внутри секции
+      const scrollSpan = sr.height - window.innerHeight;
       const progressed = clamp((-sr.top) / (scrollSpan || 1), 0, 1);
       left.style.setProperty("--t", progressed.toFixed(4));
     }
@@ -146,8 +152,22 @@ document.addEventListener("DOMContentLoaded", () => {
     return bestIdx;
   };
 
-  // ===== мягкий snap к ближайшей карточке =====
+  // ===== Snap к ближайшей карточке (включается только после первого действия пользователя) =====
+  let userStartedScrolling = false;
+
+  const enableSnapOnFirstUserScroll = () => {
+    userStartedScrolling = true;
+    window.removeEventListener("wheel", enableSnapOnFirstUserScroll);
+    window.removeEventListener("touchstart", enableSnapOnFirstUserScroll);
+    window.removeEventListener("keydown", enableSnapOnFirstUserScroll);
+  };
+
+  window.addEventListener("wheel", enableSnapOnFirstUserScroll, { passive: true });
+  window.addEventListener("touchstart", enableSnapOnFirstUserScroll, { passive: true });
+  window.addEventListener("keydown", enableSnapOnFirstUserScroll);
+
   let snapTimer = null;
+
   const snapToCard = (idx) => {
     const card = cards[idx];
     if (!card) return;
@@ -155,36 +175,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const top =
       card.getBoundingClientRect().top +
       window.pageYOffset -
-      (window.innerHeight * SETTINGS.focusY) +
-      (card.getBoundingClientRect().height / 2);
+      window.innerHeight * SETTINGS.focusY +
+      card.getBoundingClientRect().height / 2;
 
     window.scrollTo({ top, behavior: "smooth" });
   };
-let userStartedScrolling = false;
 
-const enableSnapOnFirstUserScroll = () => {
-  userStartedScrolling = true;
-  window.removeEventListener("wheel", enableSnapOnFirstUserScroll);
-  window.removeEventListener("touchstart", enableSnapOnFirstUserScroll);
-  window.removeEventListener("keydown", enableSnapOnFirstUserScroll);
-};
-
-// Включаем snap только после первого действия пользователя
-window.addEventListener("wheel", enableSnapOnFirstUserScroll, { passive: true });
-window.addEventListener("touchstart", enableSnapOnFirstUserScroll, { passive: true });
-window.addEventListener("keydown", enableSnapOnFirstUserScroll);
- // const scheduleSnap = (activeIdx) => {
-    // чтобы не мешало ручному скроллу: ждём, пока пользователь “остановится”
+  const scheduleSnap = (activeIdx) => {
     clearTimeout(snapTimer);
-    snapTimer = setTimeout(() => {
-      // если пользователь не двигает скролл — дотянем до ближайшей
-      snapToCard(activeIdx);
-    }, 170);
+    snapTimer = setTimeout(() => snapToCard(activeIdx), 170);
   };
 
-  // RAF throttle
+  // ===== RAF throttle =====
   let ticking = false;
-  let lastIdx = 0;
 
   const onScroll = () => {
     if (ticking) return;
@@ -192,12 +195,11 @@ window.addEventListener("keydown", enableSnapOnFirstUserScroll);
 
     requestAnimationFrame(() => {
       const idx = updateApple();
-      lastIdx = idx;
 
-      // snap только если пользователь начал скроллить
-if (!prefersReducedMotion && userStartedScrolling) {
-  scheduleSnap(idx);
-}
+      // Snap только если пользователь начал скроллить
+      if (!prefersReducedMotion && userStartedScrolling) {
+        scheduleSnap(idx);
+      }
 
       ticking = false;
     });
@@ -215,7 +217,7 @@ if (!prefersReducedMotion && userStartedScrolling) {
       c.style.filter = "none";
       c.classList.toggle("is-active", i === 0);
     });
-    if (currentEl) currentEl.textContent = `01 / ${String(total).padStart(2, "0")}`;
+    if (currentEl) currentEl.textContent = 01 / ${String(total).padStart(2, "0")};
     if (progressEl) progressEl.style.width = "0%";
   }
 });
