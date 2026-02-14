@@ -11,7 +11,33 @@ document.addEventListener("DOMContentLoaded", () => {
       const ms = parseInt(d, 10);
       if (!Number.isNaN(ms)) el.style.transitionDelay = `${ms}ms`;
     }
-  });
+  
+  // ===== Process hover/click helper (для телефонов) =====
+  const processSteps = Array.from(document.querySelectorAll(".process-step"));
+  if (processSteps.length) {
+    const clearActive = () => processSteps.forEach(s => s.classList.remove("is-active"));
+
+    processSteps.forEach((step) => {
+      step.addEventListener("click", () => {
+        const isOn = step.classList.contains("is-active");
+        clearActive();
+        if (!isOn) step.classList.add("is-active");
+      });
+
+      step.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          step.click();
+        }
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".process-step")) clearActive();
+    });
+  }
+
+});
 
   const makeVisible = (el) => el.classList.add("is-visible", "active", "visible");
 
