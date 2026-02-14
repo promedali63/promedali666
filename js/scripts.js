@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Reveal прячем только если JS реально включился
+  document.documentElement.classList.add("js");
+
   // Не даём браузеру “восстанавливать” скролл и прыгать
   if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";
@@ -11,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const d = el.getAttribute("data-delay");
     if (d) {
       const ms = parseInt(d, 10);
-      if (!Number.isNaN(ms)) el.style.transitionDelay = ${ms}ms;
+      if (!Number.isNaN(ms)) el.style.transitionDelay = `${ms}ms`;
     }
   });
 
@@ -74,7 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentEl = document.getElementById("appleOfferCurrent");
   const progressEl = document.getElementById("appleOfferProgress");
 
-  // Если блока нет — просто выходим (остальное работает)
   if (!scrolly || !cards.length) return;
 
   const total = cards.length;
@@ -82,8 +84,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const lerp = (a, b, t) => a + (b - a) * t;
 
   const SETTINGS = {
-    focusY: 0.45, // фокус чуть выше центра
-    radius: 0.58, // радиус влияния (высота экрана)
+    focusY: 0.45,
+    radius: 0.58,
     maxBlur: 6,
     minScale: 0.965,
     maxScale: 1.0,
@@ -105,7 +107,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const rects = getRects(focusYpx);
 
-    // активная = ближе всего к focus
     let bestIdx = 0;
     let bestDist = Infinity;
     rects.forEach((x, i) => {
@@ -116,32 +117,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     rects.forEach((x, i) => {
-      const t = clamp(x.dist / radiusPx, 0, 1); // 0..1
-      const ease = 1 - Math.pow(t, 1.6); // Apple-like curve
+      const t = clamp(x.dist / radiusPx, 0, 1);
+      const ease = 1 - Math.pow(t, 1.6);
 
       const scale = lerp(SETTINGS.minScale, SETTINGS.maxScale, ease);
       const opacity = lerp(SETTINGS.minOpacity, SETTINGS.maxOpacity, ease);
       const blur = lerp(SETTINGS.maxBlur, 0, ease);
-      const lift = lerp(18, 0, ease);
+      const lift = lerp(14, 0, ease);
 
-      x.card.style.transform = translateY(${lift}px) scale(${scale});
-      x.card.style.opacity = ${opacity};
-      x.card.
-style.filter = blur(${blur}px);
+      x.card.style.transform = `translateY(${lift}px) scale(${scale})`;
+      x.card.style.opacity = `${opacity}`;
+      x.card.style.filter = `blur(${blur}px)`;
 
       x.card.classList.toggle("is-active", i === bestIdx);
       x.card.classList.toggle("is-next", i === bestIdx + 1);
     });
 
-    // счетчик + прогресс
     const step = bestIdx + 1;
     if (currentEl) {
-      currentEl.textContent = ${String(step).padStart(2, "0")} / ${String(total).padStart(2, "0")};
+      currentEl.textContent = `${String(step).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
     }
     const p = ((step - 1) / (total - 1 || 1)) * 100;
-    if (progressEl) progressEl.style.width = ${clamp(p, 0, 100)}%;
+    if (progressEl) progressEl.style.width = `${clamp(p, 0, 100)}%`;
 
-    // анимация левого sticky блока (0..1)
     if (left) {
       const sr = scrolly.getBoundingClientRect();
       const scrollSpan = sr.height - window.innerHeight;
@@ -152,7 +150,7 @@ style.filter = blur(${blur}px);
     return bestIdx;
   };
 
-  // ===== Snap к ближайшей карточке (включается только после первого действия пользователя) =====
+  // ===== Snap (только после первого действия пользователя) =====
   let userStartedScrolling = false;
 
   const enableSnapOnFirstUserScroll = () => {
@@ -186,7 +184,6 @@ style.filter = blur(${blur}px);
     snapTimer = setTimeout(() => snapToCard(activeIdx), 170);
   };
 
-  // ===== RAF throttle =====
   let ticking = false;
 
   const onScroll = () => {
@@ -195,12 +192,7 @@ style.filter = blur(${blur}px);
 
     requestAnimationFrame(() => {
       const idx = updateApple();
-
-      // Snap только если пользователь начал скроллить
-      if (!prefersReducedMotion && userStartedScrolling) {
-        scheduleSnap(idx);
-      }
-
+      if (!prefersReducedMotion && userStartedScrolling) scheduleSnap(idx);
       ticking = false;
     });
   };
@@ -210,14 +202,13 @@ style.filter = blur(${blur}px);
     window.addEventListener("resize", onScroll);
     updateApple();
   } else {
-    // без анимаций
     cards.forEach((c, i) => {
       c.style.transform = "none";
       c.style.opacity = "1";
       c.style.filter = "none";
       c.classList.toggle("is-active", i === 0);
     });
-    if (currentEl) currentEl.textContent = 01 / ${String(total).padStart(2, "0")};
+    if (currentEl) currentEl.textContent = `01 / ${String(total).padStart(2, "0")}`;
     if (progressEl) progressEl.style.width = "0%";
   }
 });
