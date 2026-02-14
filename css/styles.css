@@ -1243,3 +1243,8 @@ html.js .reveal.visible{
   opacity: 1;
   transform: none;
 }
+.reveal{ opacity:1; transform:none; }
+html.js .reveal{ opacity:0; transform:translateY(18px); }
+html.js .reveal.is-visible,
+html.js .reveal.active,
+html.js .reveal.visible{ opacity:1; transform:none; }
