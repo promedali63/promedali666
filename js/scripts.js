@@ -128,24 +128,3 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   setActive();
 });
-/* ===== PARALLAX EFFECT ===== */
-
-const whyBg = document.querySelector('.why-us');
-
-window.addEventListener('scroll', () => {
-  if(!whyBg) return;
-
-  const rect = whyBg.getBoundingClientRect();
-  const offset = window.scrollY;
-  const speed = offset * 0.15;
-
-  whyBg.style.backgroundPosition = `center ${speed}px`;
-});
-const whyTitle = document.querySelector('.why-title');
-
-window.addEventListener('scroll', () => {
-  if(!whyTitle) return;
-
-  const scroll = window.scrollY;
-  whyTitle.style.transform = `translateY(${scroll * 0.08}px)`;
-});
