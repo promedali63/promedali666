@@ -684,9 +684,10 @@ img{max-width:100%;display:block}
 }
 
 .why-inner{
-  display:flex;
-  gap:100px;
-  align-items:flex-start;
+  display:grid;
+  grid-template-columns: 380px 1fr;
+  gap:80px;
+  align-items:start;
 }
 
 /* Левая часть */
@@ -753,10 +754,9 @@ img{max-width:100%;display:block}
 /* адаптив */
 @media(max-width:900px){
   .why-inner{
-    flex-direction:column;
-    gap:60px;
+    grid-template-columns:1fr;
   }
-
+}
   .why-line{
     display:none;
   }
