@@ -684,10 +684,9 @@ img{max-width:100%;display:block}
 }
 
 .why-inner{
-  display:grid;
-  grid-template-columns: 380px 1fr;
-  gap:80px;
-  align-items:start;
+  display:flex;
+  gap:100px;
+  align-items:flex-start;
 }
 
 /* Левая часть */
@@ -754,103 +753,11 @@ img{max-width:100%;display:block}
 /* адаптив */
 @media(max-width:900px){
   .why-inner{
-    grid-template-columns:1fr;
-  }
-  .why-line{
-    display:none;
-  }
-}
-  .why-line{
-    display:none;
-  }
-}
-/* ===== CONTACTS ===== */
-
-.contacts{
-  padding:140px 0;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(26,188,189,.08), transparent 40%),
-    linear-gradient(180deg,#000 0%, #050608 100%);
-}
-
-.contacts-inner{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:80px;
-}
-
-.contacts-left{
-  flex:1;
-}
-
-.contacts-title{
-  font-size:clamp(38px,5vw,64px);
-  font-weight:900;
-  text-transform:uppercase;
-
-  background:linear-gradient(180deg,#ffffff 0%, #cfcfcf 100%);
-  -webkit-background-clip:text;
-  color:transparent;
-
-  margin-bottom:20px;
-}
-
-.contacts-subtitle{
-  color:rgba(255,255,255,.7);
-  max-width:420px;
-}
-
-.contacts-card{
-  flex:1;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.08);
-  padding:40px;
-  border-radius:20px;
-  backdrop-filter:blur(10px);
-  transition:.4s ease;
-}
-
-.contacts-card:hover{
-  border-color:#1abcbd;
-  box-shadow:
-    0 25px 60px rgba(0,0,0,.6),
-    0 0 30px rgba(26,188,189,.25);
-}
-
-.contact-item{
-  margin-bottom:28px;
-}
-
-.contact-item span{
-  display:block;
-  font-size:13px;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  color:#1abcbd;
-  margin-bottom:8px;
-}
-
-.contact-item a{
-  color:#fff;
-  font-size:18px;
-  text-decoration:none;
-  transition:.3s;
-}
-
-.contact-item a:hover{
-  color:#1abcbd;
-}
-
-.contact-item p{
-  color:#fff;
-  font-size:18px;
-}
-
-/* адаптив */
-@media(max-width:900px){
-  .contacts-inner{
     flex-direction:column;
-    gap:50px;
+    gap:60px;
+  }
+
+  .why-line{
+    display:none;
   }
 }
