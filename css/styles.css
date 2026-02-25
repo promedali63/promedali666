@@ -756,6 +756,9 @@ img{max-width:100%;display:block}
   .why-inner{
     grid-template-columns:1fr;
   }
+  .why-line{
+    display:none;
+  }
 }
   .why-line{
     display:none;
