@@ -761,3 +761,29 @@ img{max-width:100%;display:block}
     display:none;
   }
 }
+.contacts-info{
+  margin-top:40px;
+  max-width:600px;
+}
+
+.contact-line{
+  margin-bottom:18px;
+  font-size:18px;
+  color:rgba(255,255,255,.85);
+}
+
+.contact-line strong{
+  color:#1abcbd;
+  margin-right:8px;
+  font-weight:800;
+}
+
+.contact-line a{
+  color:#ffffff;
+  text-decoration:none;
+  transition:.3s ease;
+}
+
+.contact-line a:hover{
+  color:#1abcbd;
+}
