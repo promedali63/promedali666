@@ -490,18 +490,6 @@ img{max-width:100%;display:block}
   overflow:hidden;
 }
 
-/* тонкая золотая линия сверху */
-.production::after{
-  content:"";
-  position:absolute;
-  top:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:120px;
-  height:2px;
-  background:linear-gradient(90deg, transparent, #d4af37, transparent);
-}
-
 /* Заголовок */
 .production-head{
   text-align:center;
@@ -509,13 +497,31 @@ img{max-width:100%;display:block}
 }
 
 .production-title{
-  font-size:clamp(32px,4vw,52px);
+  font-size:clamp(38px,5vw,64px);
   font-weight:900;
-  color:#fff;
-  letter-spacing:1px;
-  margin-bottom:18px;
-}
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:22px;
 
+  background:linear-gradient(180deg,#ffffff 0%, #bfbfbf 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+
+  text-shadow:
+    0 10px 40px rgba(0,0,0,.6),
+    0 0 30px rgba(26,188,189,.15);
+}
+.production-title::after{
+  content:"";
+  display:block;
+  width:120px;
+  height:3px;
+  margin:18px auto 0;
+  background:#1abcbd;
+  border-radius:3px;
+  box-shadow:0 0 20px rgba(26,188,189,.4);
+}
 .production-subtitle{
   color:rgba(255,255,255,.6);
   max-width:700px;
@@ -577,7 +583,7 @@ img{max-width:100%;display:block}
 }
 
 .production-card li::marker{
-  color:#d4af37;
+  color:#1abcbd; /* фирменный цвет */
 }
 @media (max-width: 900px){
   .production-grid{
