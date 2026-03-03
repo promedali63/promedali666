@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,26 +16,50 @@
   <nav class="nav">
     <a href="index.html">Главная</a>
     <a href="#price">Прайс</a>
+    <a href="index.html#contacts">Контакты</a>
   </nav>
 </header>
 
-<section class="plain" style="padding-top:140px;">
+<section class="catalog-section" style="padding-top:140px;">
   <div class="wrap">
-    <h2>Каталог медалей</h2>
-    <p>Здесь будут размещены фотографии и описание медалей.</p>
+    <h2 class="catalog-title">Каталог медалей</h2>
 
-    <!-- Сюда будешь добавлять карточки -->
+    <div class="catalog-grid">
+
+      <!-- Карточка 1 -->
+      <div class="catalog-card">
+        <img src="assets/medal1.jpg" alt="Медаль 1">
+        <div class="catalog-card-body">
+          <h3>Спортивная медаль</h3>
+          <p>Индивидуальный дизайн, 70 мм, лента с логотипом.</p>
+        </div>
+      </div>
+
+      <!-- Карточка 2 -->
+      <div class="catalog-card">
+        <img src="assets/medal2.jpg" alt="Медаль 2">
+        <div class="catalog-card-body">
+          <h3>Турнирная серия</h3>
+          <p>Античная бронза, гравировка, фирменная упаковка.</p>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<section id="price" class="plain">
+<!-- Прайс -->
+<section id="price" class="price-section">
   <div class="wrap">
-    <h2>Прайс</h2>
+    <h2 class="catalog-title">Коммерческое предложение</h2>
 
-    <a href="assets/price.jpg" download class="btn btn-turquoise">
-      Скачать прайс
-    </a>
+    <div class="price-card">
+      <p>Скачайте актуальный прайс и условия сотрудничества.</p>
 
+      <a href="assets/price.pdf" download class="btn btn-turquoise">
+        Скачать PDF
+      </a>
+    </div>
   </div>
 </section>
 
