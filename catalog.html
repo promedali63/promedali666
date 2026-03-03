@@ -1,34 +1,66 @@
-<section class="catalog-page">
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог | PROMEDALI63</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="header">
+  <a class="brand" href="index.html">
+    <span class="brand-text">PROMEDALI63</span>
+  </a>
+  <nav class="nav">
+    <a href="index.html">Главная</a>
+    <a href="#price">Прайс</a>
+    <a href="index.html#contacts">Контакты</a>
+  </nav>
+</header>
+
+<section class="catalog-section" style="padding-top:140px;">
   <div class="wrap">
-    <h1 class="catalog-title">Каталог медалей</h1>
+    <h2 class="catalog-title">Каталог медалей</h2>
 
     <div class="catalog-grid">
 
-      <!-- 12 карточек -->
+      <!-- Карточка 1 -->
       <div class="catalog-card">
         <img src="assets/medal1.jpg" alt="Медаль 1">
-        <h3>Модель 1</h3>
-        <p>Описание медали</p>
+        <div class="catalog-card-body">
+          <h3>Спортивная медаль</h3>
+          <p>Индивидуальный дизайн, 70 мм, лента с логотипом.</p>
+        </div>
       </div>
 
+      <!-- Карточка 2 -->
       <div class="catalog-card">
         <img src="assets/medal2.jpg" alt="Медаль 2">
-        <h3>Модель 2</h3>
-        <p>Описание медали</p>
+        <div class="catalog-card-body">
+          <h3>Турнирная серия</h3>
+          <p>Античная бронза, гравировка, фирменная упаковка.</p>
+        </div>
       </div>
 
-      <!-- Скопируй блок и сделай 12 карточек -->
-      
     </div>
-
-    <!-- Прайс -->
-    <div class="price-card">
-      <h2>Прайс</h2>
-      <p>Скачать актуальное коммерческое предложение</p>
-      <a href="assets/price.jpg" download class="btn btn-turquoise">
-        Скачать прайс
-      </a>
-    </div>
-
   </div>
 </section>
+
+<!-- Прайс -->
+<section id="price" class="price-section">
+  <div class="wrap">
+    <h2 class="catalog-title">Коммерческое предложение</h2>
+
+    <div class="price-card">
+      <p>Скачайте актуальный прайс и условия сотрудничества.</p>
+
+      <a href="assets/price.pdf" download class="btn btn-turquoise">
+        Скачать PDF
+      </a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
