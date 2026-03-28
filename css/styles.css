@@ -886,3 +886,60 @@ img{max-width:100%;display:block}
   display: block;
   margin-bottom: 16px;
 }
+.catalog-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
+  gap: 28px;
+  justify-content: center;
+}
+
+/* карточка */
+.catalog-card{
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 22px;
+  padding: 16px;
+  backdrop-filter: blur(10px);
+  transition: 0.35s;
+}
+
+/* hover эффект дорогой */
+.catalog-card:hover{
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0,0,0,.6);
+}
+
+/* контейнер под фото */
+.catalog-img{
+  width: 100%;
+  aspect-ratio: 1 / 1;   /* 🔥 квадрат */
+  overflow: hidden;
+  border-radius: 16px;
+  margin-bottom: 14px;
+}
+
+/* само фото */
+.catalog-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* 🔥 обрезает красиво */
+  transition: 0.4s;
+}
+
+/* zoom эффект */
+.catalog-card:hover img{
+  transform: scale(1.08);
+}
+
+/* текст */
+.catalog-card h3{
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.catalog-card p{
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+}
