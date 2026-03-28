@@ -877,20 +877,23 @@ img{max-width:100%;display:block}
   color:transparent;
   letter-spacing:2px;
   text-align:center;
-}
-.catalog-card img{
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 18px;
-  display: block;
-  margin-bottom: 16px;
-}
+
 .catalog-grid{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
-  gap: 28px;
-  justify-content: center;
+  grid-template-columns: repeat(5, 1fr); /* 🔥 5 в ряд */
+  gap: 20px;
+}
+
+@media (max-width: 1100px){
+  .catalog-grid{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px){
+  .catalog-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* карточка */
