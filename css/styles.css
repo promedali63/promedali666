@@ -866,7 +866,7 @@ img{max-width:100%;display:block}
 .catalog-section{
   padding:140px 0 120px;
   background:linear-gradient(180deg,#0c1117 0%, #111827 100%);
-c
+}
 .catalog-title{
   font-size:clamp(40px,5vw,64px);
   font-weight:900;
@@ -877,7 +877,7 @@ c
   color:transparent;
   letter-spacing:2px;
   text-align:center;
-}
+
 .catalog-grid{
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* 🔥 5 в ряд */
@@ -1051,152 +1051,4 @@ c
   
 .catalog-grid{
   align-items:stretch; /* 🔥 выравнивает карточки */
-}
-/* ===== MOBILE BURGER FINAL ===== */
-.burger{
-  display:none;
-  appearance:none;
-  -webkit-appearance:none;
-  background:transparent;
-  border:none;
-  outline:none;
-  box-shadow:none;
-  padding:0;
-  margin:0;
-  width:44px;
-  height:44px;
-  cursor:pointer;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  gap:5px;
-  z-index:1101;
-}
-
-.burger span{
-  display:block;
-  width:24px;
-  height:2px;
-  background:#fff;
-  border-radius:2px;
-  transition:.25s ease;
-}
-
-max-width: 768px{
-  .header{
-    display:flex !important;
-    align-items:center !important;
-    justify-content:space-between !important;
-    flex-wrap:wrap !important;
-    padding:12px 14px !important;
-    gap:10px !important;
-  }
-
-  .brand{
-    display:flex !important;
-    align-items:center !important;
-    gap:8px !important;
-    max-width:calc(100% - 56px) !important;
-  }
-
-  .brand-text{
-    font-size:18px !important;
-    line-height:1.1 !important;
-  }
-
-  .brand-logo{
-    width:32px !important;
-    height:32px !important;
-    object-fit:contain !important;
-  }
-
-  .burger{
-    display:flex !important;
-    flex:0 0 44px !important;
-  }
-
-  .nav{
-    display:none !important;
-    width:100% !important;
-    flex-direction:column !important;
-    align-items:stretch !important;
-    gap:8px !important;
-    margin-top:10px !important;
-    padding-top:10px !important;
-    border-top:1px solid rgba(255,255,255,.08) !important;
-  }
-
-  .nav.open{
-    display:flex !important;
-  }
-
-  .nav a{
-    display:block !important;
-    width:100% !important;
-    text-align:center !important;
-    font-size:16px !important;
-    padding:12px 14px !important;
-    border-radius:12px !important;
-    background:rgba(255,255,255,.05) !important;
-  }
-
-  .hero{
-    padding-top:110px !important;
-  }
-
-  .hero-title{
-    font-size:40px !important;
-    line-height:1.05 !important;
-  }
-
-  .hero-subtitle{
-    font-size:17px !important;
-    line-height:1.35 !important;
-  }
-
-  .btn,
-  .btn-turquoise{
-    width:100% !important;
-    max-width:320px !important;
-    font-size:18px !important;
-  }
-}
-
-min-width: 769px{
-  .burger{
-    display:none !important;
-  }
-
-  .nav{
-    display:flex !important;
-  }
-}
-
-max-width: 480px{
-  .brand-text{
-    font-size:16px !important;
-  }
-
-  .brand-logo{
-    width:28px !important;
-    height:28px !important;
-  }
-
-  .hero-title{
-    font-size:32px !important;
-  }
-
-  .hero-subtitle{
-    font-size:16px !important;
-  }
-
-  .nav a{
-    font-size:16px !important;
-  }
-
-  .btn,
-  .btn-turquoise{
-    max-width:280px !important;
-    font-size:16px !important;
-  }
 }
