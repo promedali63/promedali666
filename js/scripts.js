@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ===== Reveal (совместимо с is-visible/active/visible) =====
   const revealItems = Array.from(document.querySelectorAll(".reveal"));
   revealItems.forEach((el) => {
     const d = el.getAttribute("data-delay");
@@ -34,26 +33,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // ===== Smooth scroll for anchors (без авто-переходов) =====
   const header = document.querySelector(".header");
+  const headerOffset = () => (header ? header.offsetHeight : 0);
+
   const burger = document.querySelector(".burger");
   const nav = document.querySelector(".nav");
 
   if (burger && nav) {
     burger.addEventListener("click", () => {
       nav.classList.toggle("open");
-      const expanded = burger.getAttribute("aria-expanded") === "true";
-      burger.setAttribute("aria-expanded", String(!expanded));
+      const isOpen = nav.classList.contains("open");
+      burger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      document.body.classList.toggle("menu-open", isOpen);
     });
 
     nav.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         nav.classList.remove("open");
         burger.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("menu-open");
       });
     });
   }
-  const headerOffset = () => (header ? header.offsetHeight : 0);
 
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", (e) => {
@@ -76,72 +77,77 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ===== PROCESS: active step + progress line (no jump) =====
   const stepsWrap = document.getElementById("processSteps");
   const fill = document.getElementById("processFill");
-  if (!stepsWrap) return;
 
-  const steps = Array.from(stepsWrap.querySelectorAll(".pstep"));
-  const dots = stepsWrap.querySelectorAll(".pstep-dot");
+  if (stepsWrap) {
+    const steps = Array.from(stepsWrap.querySelectorAll(".pstep"));
+    const dots = stepsWrap.querySelectorAll(".pstep-dot");
 
-  // click on dot -> smooth scroll to the card (optional, but nice)
-  dots.forEach((btn, idx) => {
-    btn.addEventListener("click", () => {
-      const card = steps[idx];
-      if (!card) return;
-      const top =
-        card.getBoundingClientRect().top +
-        window.pageYOffset -
-        headerOffset() -
-        28;
-      window.scrollTo({ top, behavior: prefersReducedMotion ? "auto" : "smooth" });
+    dots.forEach((btn, idx) => {
+      btn.addEventListener("click", () => {
+        const card = steps[idx];
+        if (!card) return;
+        const top =
+          card.getBoundingClientRect().top +
+          window.pageYOffset -
+          headerOffset() -
+          28;
+        window.scrollTo({ top, behavior: prefersReducedMotion ? "auto" : "smooth" });
+      });
     });
-  });
 
-  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
-  const setActive = () => {
-    // only desktop: progress line exists
-    const isDesktop = window.matchMedia("(min-width: 981px)").matches;
+    const setActive = () => {
+      const isDesktop = window.matchMedia("(min-width: 981px)").matches;
 
-    // pick step closest to 45% of viewport height
-    const focusY = window.innerHeight * 0.45;
-    let bestIdx = 0;
-    let bestDist = Infinity;
+      const focusY = window.innerHeight * 0.45;
+      let bestIdx = 0;
+      let bestDist = Infinity;
 
-    steps.forEach((s, i) => {
-      const r = s.getBoundingClientRect();
-      const center = r.top + r.height * 0.35;
-      const dist = Math.abs(center - focusY);
-      if (dist < bestDist) {
-        bestDist = dist;
-        bestIdx = i;
+      steps.forEach((s, i) => {
+        const r = s.getBoundingClientRect();
+        const center = r.top + r.height * 0.35;
+        const dist = Math.abs(center - focusY);
+        if (dist < bestDist) {
+          bestDist = dist;
+          bestIdx = i;
+        }
+      });
+
+      steps.forEach((s, i) => s.classList.toggle("is-active", i === bestIdx));
+
+      if (fill && isDesktop && steps.length > 1) {
+        const p = (bestIdx / (steps.length - 1)) * 100;
+        fill.style.width = `${clamp(p, 0, 100)}%`;
+      } else if (fill) {
+        fill.style.width = "0%";
       }
-    });
+    };
 
-    steps.forEach((s, i) => s.classList.toggle("is-active", i === bestIdx));
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(
 
-    if (fill && isDesktop && steps.length > 1) {
-      const p = (bestIdx / (steps.length - 1)) * 100;
-      fill.style.width = `${clamp(p, 0, 100)}%`;
-    } else if (fill) {
-      fill.style.width = "0%";
+
+) => {
+        setActive();
+        ticking = false;
+      });
+    };
+
+    if (!prefersReducedMotion) {
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
     }
-  };
-
-  let ticking = false;
-  const onScroll = () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      setActive();
-      ticking = false;
-    });
-  };
-
-  if (!prefersReducedMotion) {
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    setActive();
   }
-  setActive();
-});
+});(
+
+
+
+c
+
