@@ -1052,24 +1052,30 @@ c
 .catalog-grid{
   align-items:stretch; /* 🔥 выравнивает карточки */
 }
+/* ===== MOBILE BURGER FINAL ===== */
 .burger{
   display:none;
-  width:46px;
-  height:46px;
+  appearance:none;
+  -webkit-appearance:none;
+  background:transparent;
+  border:none;
+  outline:none;
+  box-shadow:none;
   padding:0;
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:12px;
-  background:rgba(255,255,255,.04);
+  margin:0;
+  width:44px;
+  height:44px;
+  cursor:pointer;
   align-items:center;
   justify-content:center;
   flex-direction:column;
   gap:5px;
-  cursor:pointer;
+  z-index:1101;
 }
 
 .burger span{
   display:block;
-  width:20px;
+  width:24px;
   height:2px;
   background:#fff;
   border-radius:2px;
@@ -1078,115 +1084,119 @@ c
 
 max-width: 768px{
   .header{
-    padding:12px 14px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:10px;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    flex-wrap:wrap !important;
+    padding:12px 14px !important;
+    gap:10px !important;
   }
 
   .brand{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    max-width:calc(100% - 60px);
+    display:flex !important;
+    align-items:center !important;
+    gap:8px !important;
+    max-width:calc(100% - 56px) !important;
   }
 
   .brand-text{
-    font-size:18px;
-    line-height:1.1;
+    font-size:18px !important;
+    line-height:1.1 !important;
   }
 
   .brand-logo{
-    width:34px;
-    height:34px;
+    width:32px !important;
+    height:32px !important;
+    object-fit:contain !important;
   }
 
   .burger{
-    display:flex;
+    display:flex !important;
+    flex:0 0 44px !important;
   }
 
   .nav{
-    display:none;
-    width:100%;
-    flex-direction:column;
-    align-items:center;
-    gap:10px;
-    padding-top:10px;
-    margin-top:4px;
-    border-top:1px solid rgba(255,255,255,.08);
+    display:none !important;
+    width:100% !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    gap:8px !important;
+    margin-top:10px !important;
+    padding-top:10px !important;
+    border-top:1px solid rgba(255,255,255,.08) !important;
   }
 
   .nav.open{
-    display:flex;
+    display:flex !important;
   }
 
   .nav a{
-    display:block;
-    width:100%;
-    max-width:320px;
-    text-align:center;
-    font-size:17px;
-    padding:12px 14px;
-    border-radius:12px;
-    background:rgba(255,255,255,.04);
+    display:block !important;
+    width:100% !important;
+    text-align:center !important;
+    font-size:16px !important;
+    padding:12px 14px !important;
+    border-radius:12px !important;
+    background:rgba(255,255,255,.05) !important;
   }
 
   .hero{
-    padding-top:110px;
-    min-height:100svh;
+    padding-top:110px !important;
   }
 
   .hero-title{
-    font-size:40px;
-    line-height:1.05;
+    font-size:40px !important;
+    line-height:1.05 !important;
   }
 
   .hero-subtitle{
-    font-size:17px;
-    line-height:1.35;
+    font-size:17px !important;
+    line-height:1.35 !important;
   }
 
   .btn,
   .btn-turquoise{
-    width:100%;
-    max-width:320px;
-    min-height:52px;
-    font-size:18px;
+    width:100% !important;
+    max-width:320px !important;
+    font-size:18px !important;
+  }
+}
+
+min-width: 769px{
+  .burger{
+    display:none !important;
+  }
+
+  .nav{
+    display:flex !important;
   }
 }
 
 max-width: 480px{
   .brand-text{
-    font-size:16px;
+    font-size:16px !important;
   }
 
   .brand-logo{
-    width:30px;
-    height:30px;
-  }
-
-  .hero{
-    padding-top:100px;
+    width:28px !important;
+    height:28px !important;
   }
 
   .hero-title{
-    font-size:32px;
+    font-size:32px !important;
   }
 
   .hero-subtitle{
-    font-size:16px;
+    font-size:16px !important;
   }
 
   .nav a{
-    font-size:16px;
+    font-size:16px !important;
   }
 
   .btn,
   .btn-turquoise{
-    max-width:280px;
-    font-size:16px;
-    min-height:48px;
+    max-width:280px !important;
+    font-size:16px !important;
   }
 }
