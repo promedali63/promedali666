@@ -36,6 +36,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ===== Smooth scroll for anchors (без авто-переходов) =====
   const header = document.querySelector(".header");
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector(".nav");
+
+  if (burger && nav) {
+    burger.addEventListener("click", () => {
+      nav.classList.toggle("open");
+      const expanded = burger.getAttribute("aria-expanded") === "true";
+      burger.setAttribute("aria-expanded", String(!expanded));
+    });
+
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("open");
+        burger.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
   const headerOffset = () => (header ? header.offsetHeight : 0);
 
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
